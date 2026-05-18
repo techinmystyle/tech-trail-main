@@ -4,6 +4,7 @@ const tagData = {
       name: "Formatting Tags",
       description: "Tags for text formatting and styling",
       tags: [
+        { name: "a", description: "Hyperlink" },
         { name: "abbr", description: "Abbreviation or acronym" },
         { name: "b", description: "Bold text" },
         { name: "bdi", description: "Bidirectional isolate text" },
