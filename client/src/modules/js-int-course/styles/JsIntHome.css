@@ -1225,6 +1225,19 @@ html.dark .js-int-course-root .home-why-icon {
     gap:            3rem;
   }
 
+  /* Code window must always be left-aligned */
+  .js-int-course-root .home-code-window-wrap {
+    text-align: left;
+  }
+
+  .js-int-course-root .home-code-line {
+    text-align: left;
+  }
+
+  .js-int-course-root .home-line-content {
+    text-align: left;
+  }
+
 
   .js-int-course-root .home-hero-content {
     max-width: 100%;

@@ -1840,6 +1840,20 @@ html.dark .css-course-root .css-course-card__badge {
     }
 
 
+    /* Code window must always be left-aligned */
+    .css-course-root .css-hero__code-wrap {
+        text-align: left;
+    }
+
+    .css-course-root .css-hero__code-line {
+        text-align: left;
+    }
+
+    .css-course-root .css-hero__line-content {
+        text-align: left;
+    }
+
+
     .css-course-root .css-hero__float-badge--1 {
         top: -14px;
         right: 10px;

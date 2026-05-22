@@ -715,66 +715,97 @@ html.dark .js-adv-course-root .footer__stats-block {
   .js-adv-course-root .footer__body {
     grid-template-columns: 1fr 1fr;
     gap: 40px 32px;
-    padding: 48px 5% 40px;
+    padding: 48px 1.5rem 40px;
   }
-
 
   .js-adv-course-root .footer__col--about {
     grid-column: 1 / -1;
   }
 
-
   .js-adv-course-root .footer__description {
     max-width: 100%;
   }
 
-}
-
-/* ════════════════════════════════════════════════════════════════════════
-   RESPONSIVE — MOBILE  (≤ 640px)
-   ════════════════════════════════════════════════════════════════════════ */
-@media (max-width: 640px) {
-  .js-adv-course-root .site-footer {
-    overflow-x: hidden;
+  .js-adv-course-root .footer__col:last-child {
+    grid-column: 1 / -1;
   }
 
+  .js-adv-course-root .footer__community-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
 
+@media (max-width: 768px) {
   .js-adv-course-root .footer__body {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 40px 5% 32px;
+    padding: 40px 1.25rem 32px;
   }
-
 
   .js-adv-course-root .footer__col--about {
-    grid-column: 1;
+    grid-column: 1 / 1;
   }
 
+  .js-adv-course-root .footer__col {
+    grid-column: 1 / 1;
+  }
+
+  .js-adv-course-root .footer__col:last-child {
+    grid-column: 1 / 1;
+  }
+
+  .js-adv-course-root .footer__community-list {
+    grid-template-columns: 1fr;
+  }
 
   .js-adv-course-root .footer__description {
     max-width: 100%;
   }
-
 
   .js-adv-course-root .footer__stats-block {
     flex-wrap: nowrap;
   }
-
 
   .js-adv-course-root .footer__bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 14px;
-    padding: 16px 5%;
+    padding: 16px 1.25rem;
   }
-
 
   .js-adv-course-root .footer__copyright {
     justify-content: center;
     font-size: 0.775rem;
   }
 
+  .js-adv-course-root .footer__back-top {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-adv-course-root .site-footer {
+    overflow-x: hidden;
+  }
+
+  .js-adv-course-root .footer__body {
+    gap: 28px;
+    padding: 32px 1rem 28px;
+  }
+
+  .js-adv-course-root .footer__community-value {
+    font-size: 0.82rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .js-adv-course-root .footer__bottom {
+    padding: 14px 1rem;
+  }
 }
 
 /* ════════════════════════════════════════════════════════════════════════

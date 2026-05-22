@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 const quickLinks = [
   { name: 'Home', path: '/java-course' },
   { name: 'Topics', path: '/java-course/topics' },
-  { name: 'About', path: '/java-course/about' },
   { name: 'Compiler', path: '/java-course/compiler' },
   { name: 'Docker Guide', path: '/java-course/docker' },
-  { name: "Let's Connect", path: '/java-course/connect' },
 ];
 
 const courses = [

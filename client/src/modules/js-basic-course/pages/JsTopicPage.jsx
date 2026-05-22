@@ -461,12 +461,13 @@ ${jsCode}
               </div>
             </div>
 
-            {/* Monaco Editors - show based on active tab */}
+            {/* Monaco Editors - all mounted, visibility toggled via CSS */}
             <div
               className="js-editor-monaco-wrap"
-              style={{ flex: 1, minHeight: 0 }}
+              style={{ flex: 1, minHeight: 0, position: "relative" }}
             >
-              {activeTab === "html" && (
+              {/* HTML Editor */}
+              <div style={{ position: "absolute", inset: 0, display: activeTab === "html" ? "block" : "none" }}>
                 <Editor
                   height="100%"
                   defaultLanguage="html"
@@ -496,8 +497,9 @@ ${jsCode}
                     },
                   }}
                 />
-              )}
-              {activeTab === "css" && (
+              </div>
+              {/* CSS Editor */}
+              <div style={{ position: "absolute", inset: 0, display: activeTab === "css" ? "block" : "none" }}>
                 <Editor
                   height="100%"
                   defaultLanguage="css"
@@ -527,8 +529,9 @@ ${jsCode}
                     },
                   }}
                 />
-              )}
-              {activeTab === "js" && (
+              </div>
+              {/* JS Editor */}
+              <div style={{ position: "absolute", inset: 0, display: activeTab === "js" ? "block" : "none" }}>
                 <Editor
                   height="100%"
                   defaultLanguage="javascript"
@@ -558,7 +561,7 @@ ${jsCode}
                     },
                   }}
                 />
-              )}
+              </div>
             </div>
 
             {/* Action buttons */}

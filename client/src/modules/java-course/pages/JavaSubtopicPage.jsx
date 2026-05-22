@@ -13,6 +13,8 @@ import {
   SparklesIcon,
   ChevronRightIcon,
   AcademicCapIcon,
+  PlayCircleIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 import { topicsData } from "../data/topicsData";
 import toast from "react-hot-toast";
@@ -234,7 +236,7 @@ function sectionMeta(heading) {
 /* ── Render parsed blocks ────────────────────────────────────── */
 function ContentBlocks({ blocks }) {
   return (
-    <div className="space-y-1">
+    <div className="space-y-2">
       {blocks.map((block, idx) => {
         switch (block.type) {
           case "h2": {
@@ -484,7 +486,7 @@ Make sure the code example is complete, correct Java code that can be compiled a
         <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-java-blue/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-java-orange/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 flex-wrap">
             <Link to="/java-course" className="hover:text-java-orange transition-colors">Home</Link>
@@ -535,11 +537,11 @@ Make sure the code example is complete, correct Java code that can be compiled a
 
       {/* ── Content ─────────────────────────────────────────────── */}
       <section className="py-10" ref={contentRef}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_260px] gap-8 items-start">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
 
             {/* Main lesson card */}
-            <div className="bg-white dark:bg-java-card-dark rounded-3xl border border-gray-100 dark:border-java-border-dark shadow-sm p-6 sm:p-8 min-h-[400px]">
+            <div className="java-content-card bg-white dark:bg-java-card-dark rounded-3xl border border-gray-100 dark:border-java-border-dark shadow-sm p-6 sm:p-8 min-h-[400px] flex-1 min-w-0 w-full">
               {loading && <SkeletonLoader />}
 
               {error && !loading && (
@@ -579,26 +581,26 @@ Make sure the code example is complete, correct Java code that can be compiled a
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-5 lg:sticky lg:top-24">
+            <div className="java-subtopic-sidebar space-y-5 lg:sticky lg:top-24 w-full lg:w-64 xl:w-72 flex-shrink-0">
               {/* Subtopics list */}
               <div className="bg-white dark:bg-java-card-dark rounded-2xl border border-gray-100 dark:border-java-border-dark shadow-sm overflow-hidden">
                 <div
-                  className={`px-4 py-3 bg-gradient-to-r ${topicGradients[colorIdx]}`}
+                  className={`px-4 py-3.5 bg-gradient-to-r ${topicGradients[colorIdx]}`}
                 >
                   <h3 className="font-poppins font-semibold text-white text-sm">
                     {topic.title}
                   </h3>
                   <p className="text-white/70 text-xs mt-0.5">
-                    {allSubtopics.length} subtopics
+                    {allSubtopics.length} subtopics · Lesson {currentIdx + 1}
                   </p>
                 </div>
-                <div className="p-2 max-h-72 overflow-y-auto scrollbar-thin">
+                <div className="p-2 java-sidebar-subtopics max-h-72 overflow-y-auto scrollbar-thin">
                   {allSubtopics.map((s, j) => {
                     const isActive = s.slug === subtopicSlug;
                     return (
                       <Link
                         key={s.slug}
-                        to={`/topic/${topicId}/${s.slug}`}
+                        to={`/java-course/topic/${topicId}/${s.slug}`}
                         state={{ topicTitle: topic.title, subtopic: s, colorIdx }}
                         className={`
                           flex items-center gap-2.5 px-3 py-2.5 rounded-xl mb-0.5
@@ -648,6 +650,75 @@ Make sure the code example is complete, correct Java code that can be compiled a
                   Open Compiler
                 </Link>
               </div>
+
+              {/* Resources Section */}
+              {(subtopic.pdfUrl || subtopic.ytUrl) && (
+                <div className="bg-white dark:bg-java-card-dark rounded-2xl border border-gray-100 dark:border-java-border-dark shadow-sm overflow-hidden">
+                  <div className="px-4 py-3.5 bg-gradient-to-r from-purple-600 to-java-blue">
+                    <h3 className="font-poppins font-semibold text-white text-sm">
+                      📚 Resources
+                    </h3>
+                    <p className="text-white/70 text-xs mt-0.5">
+                      Additional learning materials
+                    </p>
+                  </div>
+                  <div className="p-4 space-y-3">
+                    {/* PDF Resource */}
+                    {subtopic.pdfUrl && (
+                      <a
+                        href={subtopic.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-3 rounded-xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 hover:bg-red-100 dark:hover:bg-red-900/20 transition-all duration-200 group"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-red-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-gray-900 dark:text-white font-poppins">
+                            PDF Notes
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            Download study material
+                          </p>
+                        </div>
+                        <svg className="w-4 h-4 text-red-500 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    )}
+
+                    {/* YouTube Resource */}
+                    {subtopic.ytUrl && (
+                      <a
+                        href={subtopic.ytUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-3 rounded-xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 hover:bg-red-100 dark:hover:bg-red-900/20 transition-all duration-200 group"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-red-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-gray-900 dark:text-white font-poppins">
+                            Video Tutorial
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            Watch on YouTube
+                          </p>
+                        </div>
+                        <svg className="w-4 h-4 text-red-600 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -655,7 +726,7 @@ Make sure the code example is complete, correct Java code that can be compiled a
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {prevSub ? (
               <Link
-                to={`/topic/${topicId}/${prevSub.slug}`}
+                to={`/java-course/topic/${topicId}/${prevSub.slug}`}
                 state={{ topicTitle: topic.title, subtopic: prevSub, colorIdx }}
                 className="group flex items-center gap-4 p-5 rounded-2xl border border-gray-200 dark:border-java-border-dark bg-white dark:bg-java-card-dark hover:border-java-blue/40 dark:hover:border-java-orange/40 hover:shadow-md transition-all duration-200"
               >
@@ -673,7 +744,7 @@ Make sure the code example is complete, correct Java code that can be compiled a
 
             {nextSub ? (
               <Link
-                to={`/topic/${topicId}/${nextSub.slug}`}
+                to={`/java-course/topic/${topicId}/${nextSub.slug}`}
                 state={{ topicTitle: topic.title, subtopic: nextSub, colorIdx }}
                 className="group flex items-center justify-end gap-4 p-5 rounded-2xl border border-gray-200 dark:border-java-border-dark bg-white dark:bg-java-card-dark hover:border-java-blue/40 dark:hover:border-java-orange/40 hover:shadow-md transition-all duration-200 text-right"
               >

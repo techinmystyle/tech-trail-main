@@ -131,19 +131,32 @@ export default function CTopicPage() {
             )}
 
             {/* Resources */}
-            {data.pdfLink && (
+            {(data.pdfLink || data.ytUrl) && (
               <section className="c-content-section">
                 <h2>Resources</h2>
                 <div className="c-resources-list">
-                  <div className="c-resource-item">
-                    <div className="c-resource-icon"><i className="fas fa-book"></i></div>
-                    <div className="c-resource-content">
-                      <h4>Topic PDF</h4>
-                      <a href={data.pdfLink} target="_blank" rel="noreferrer" className="c-resource-link">
-                        Read More <i className="fas fa-external-link-alt"></i>
-                      </a>
+                  {data.pdfLink && (
+                    <div className="c-resource-item">
+                      <div className="c-resource-icon"><i className="fas fa-book"></i></div>
+                      <div className="c-resource-content">
+                        <h4>Topic PDF</h4>
+                        <a href={data.pdfLink} target="_blank" rel="noreferrer" className="c-resource-link">
+                          Read More <i className="fas fa-external-link-alt"></i>
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  )}
+                  {data.ytUrl && (
+                    <div className="c-resource-item">
+                      <div className="c-resource-icon" style={{color: '#FF0000'}}><i className="fab fa-youtube"></i></div>
+                      <div className="c-resource-content">
+                        <h4>Video Tutorial</h4>
+                        <a href={data.ytUrl} target="_blank" rel="noreferrer" className="c-resource-link">
+                          Watch on YouTube <i className="fas fa-external-link-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </section>
             )}

@@ -320,9 +320,9 @@ export default function CssNavMenu({ isOpen, onClose }) {
           bottom: 0,
           zIndex: 1200,
           width: "min(320px, 88vw)",
-          background: "var(--color-card)",
-          borderLeft: "1px solid var(--color-border)",
-          boxShadow: "-8px 0 40px rgba(38,77,228,0.18)",
+          background: "#0f1420",
+          borderLeft: "1px solid rgba(38,77,228,0.25)",
+          boxShadow: "-8px 0 40px rgba(38,77,228,0.25)",
           display: "flex",
           flexDirection: "column",
           transform: isOpen ? "translateX(0)" : "translateX(100%)",
@@ -341,14 +341,12 @@ export default function CssNavMenu({ isOpen, onClose }) {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "1.25rem 1.5rem",
-            borderBottom: "1px solid var(--color-border)",
-            background:
-              "linear-gradient(135deg, rgba(38,77,228,0.08), rgba(41,101,241,0.04))",
+            borderBottom: "1px solid rgba(38,77,228,0.25)",
+            background: "#111827",
             flexShrink: 0,
             position: "sticky",
             top: 0,
             zIndex: 10,
-            backdropFilter: "blur(10px)",
           }}
         >
           <div
@@ -389,7 +387,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
                   margin: 0,
                   fontSize: "0.95rem",
                   fontWeight: 800,
-                  color: "var(--color-text)",
+                  color: "#e8ecf8",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -399,7 +397,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
                 style={{
                   margin: 0,
                   fontSize: "0.72rem",
-                  color: "var(--color-text-muted)",
+                  color: "#8a95c0",
                   fontWeight: 500,
                 }}
               >
@@ -419,9 +417,9 @@ export default function CssNavMenu({ isOpen, onClose }) {
               width: 34,
               height: 34,
               borderRadius: "8px",
-              border: "1px solid var(--color-border)",
+              border: "1px solid rgba(38,77,228,0.25)",
               background: "none",
-              color: "var(--color-text-muted)",
+              color: "#8a95c0",
               cursor: "pointer",
               fontSize: "1rem",
               transition: "all 0.15s ease",
@@ -447,7 +445,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
         <div
           style={{
             padding: "0.75rem 1.25rem",
-            borderBottom: "1px solid var(--color-border)",
+            borderBottom: "1px solid rgba(38,77,228,0.2)",
             flexShrink: 0,
           }}
         >
@@ -511,7 +509,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
                   gap: "0.6rem",
                   position: "sticky",
                   top: 0,
-                  background: "var(--color-card)",
+                  background: "#0f1420",
                   zIndex: 1,
                 }}
               >
@@ -559,7 +557,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
                       fontFamily: "'JetBrains Mono', monospace",
                       fontSize: "0.8rem",
                       fontWeight: isActive ? 700 : 500,
-                      color: isActive ? "#fff" : "var(--color-text-muted)",
+                      color: isActive ? "#fff" : "#8a95c0",
                       background: isActive
                         ? "linear-gradient(135deg,#264de4,#2965f1)"
                         : "transparent",
@@ -637,7 +635,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
         <div
           style={{
             flexShrink: 0,
-            borderTop: "1px solid var(--color-border)",
+            borderTop: "1px solid rgba(38,77,228,0.2)",
             padding: "1rem 1.25rem",
             display: "flex",
             flexDirection: "column",
@@ -650,7 +648,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
               margin: 0,
               fontSize: "0.7rem",
               fontWeight: 700,
-              color: "var(--color-text-faint)",
+              color: "#5a6488",
               textTransform: "uppercase",
               letterSpacing: "0.06em",
             }}
@@ -707,7 +705,7 @@ export default function CssNavMenu({ isOpen, onClose }) {
             style={{
               margin: 0,
               fontSize: "0.68rem",
-              color: "var(--color-text-faint)",
+              color: "#5a6488",
               lineHeight: 1.5,
             }}
           >

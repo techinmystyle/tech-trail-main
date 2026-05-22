@@ -63,16 +63,10 @@ export default function HtmlTagPageFooter() {
           </div>
         </div>
 
-        <div className="tag-contact-email">
-          <p>
-            <a href="mailto:techinmystyle@gmail.com" target="_blank" rel="noopener noreferrer">
-              Contact us: techinmystyle@gmail.com
-            </a>
-          </p>
-        </div>
+
 
         <div className="tag-copyright">
-          <p>&copy; {new Date().getFullYear()} HTML IN MY STYLE. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} HTML IN MY STYLE <span className="tag-copyright-heart">♥</span> All Rights Reserved.</p>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/JsFooter.css'
 
 const QUICK_LINKS = [
   { label: 'Home',               to: '/js-basic-course'          },
@@ -207,11 +208,8 @@ export default function JsFooter() {
       >
         {/* Main Grid */}
         <div
+          className="js-footer-grid"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '3rem',
-            paddingBottom: '3rem',
             borderBottom: '1px solid rgba(247,223,30,0.10)',
           }}
         >
@@ -445,13 +443,9 @@ export default function JsFooter() {
 
         {/* ── Bottom Bar ── */}
         <div
+          className="js-footer-bottom"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
             flexWrap: 'wrap',
-            gap: '1rem',
-            padding: '1.5rem 0',
           }}
         >
           <p

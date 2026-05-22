@@ -451,7 +451,7 @@ export default function Home() {
       ════════════════════════════════════════ */}
       <section className="relative py-24 overflow-hidden">
         {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-java-blue via-java-lightblue to-java-blue bg-[length:200%_100%] animate-[gradientShift_4s_linear_infinite]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-java-blue via-java-lightblue to-java-blue bg-[length:200%_100%] animate-gradient" />
 
         {/* Dot pattern overlay */}
         <div

@@ -6,10 +6,8 @@ import { useTheme } from "../context/ThemeContext";
 const navLinks = [
   { name: 'Home', path: '/java-course' },
   { name: 'Topics', path: '/java-course/topics' },
-  { name: 'About', path: '/java-course/about' },
   { name: 'Compiler', path: '/java-course/compiler' },
   { name: 'Docker', path: '/java-course/docker' },
-  { name: "Let's Connect", path: '/java-course/connect' },
 ];
 
 export default function JavaNavbar() {

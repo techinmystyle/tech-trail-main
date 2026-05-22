@@ -419,8 +419,8 @@ export default function Compiler() {
                 className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium font-poppins bg-gray-100 dark:bg-java-darker text-gray-700 dark:text-gray-300 rounded-xl border border-gray-200 dark:border-java-border-dark hover:border-java-blue dark:hover:border-java-orange transition-all"
               >
                 <CodeBracketIcon className="w-4 h-4 text-java-blue dark:text-java-orange" />
-                <span className="hidden xs:inline">{selectedTemplate}</span>
-                <span className="xs:hidden">Templates</span>
+                <span className="hidden sm:inline">{selectedTemplate}</span>
+                <span className="sm:hidden">Templates</span>
                 <ChevronDownIcon
                   className={`w-4 h-4 transition-transform duration-200 ${showTemplates ? 'rotate-180' : ''}`}
                 />

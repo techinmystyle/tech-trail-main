@@ -40,7 +40,7 @@ const courses = [
     title: "JAVASCRIPT INTERMEDIATE",
     description:
       "Level up your JavaScript skills with ES6 features, asynchronous programming, APIs, closures, and advanced DOM techniques.",
-    image: "/img/JS-INTERMEDIATE.png",
+    image: "/img/JS-INT.png",
     link: "/js-int-course",
     internal: true,
     badge: "Available Now",
@@ -50,7 +50,7 @@ const courses = [
     title: "JAVASCRIPT ADVANCED",
     description:
       "Master Enterprise-Level JavaScript concepts, patterns, and architecture for building scalable applications.",
-    image: "/img/JS-INTERMEDIATE.png",
+    image: "/img/JS-ADV.png",
     link: "/js-adv-course",
     internal: true,
     badge: "Available Now",
@@ -130,7 +130,7 @@ const courses = [
     title: "DSA IN MY STYLE",
     description:
       "Master Data Structures and Algorithms with interactive visualizers, code examples, and interview prep.",
-    image: "/img/DSC.png",
+    image: "/img/DSA.png",
     link: "/dsa-course",
     internal: true,
     badge: "Available Now",
@@ -140,7 +140,7 @@ const courses = [
     title: "NLP IN MY STYLE",
     description:
       "Master Natural Language Processing from tokenization to transformers with code examples and MCQs.",
-    image: "/img/AI.png",
+    image: "/img/NLP.png",
     link: "/nlp-course",
     internal: true,
     badge: "Available Now",
@@ -170,7 +170,7 @@ const courses = [
     title: "DATABASE IN MY STYLE",
     description:
       "Master SQL, NoSQL, database design, normalization, and query optimization with hands-on examples.",
-    image: "/img/TECH.png",
+    image: "/img/DBMS.png",
     link: "/database-course",
     internal: true,
     badge: "Available Now",

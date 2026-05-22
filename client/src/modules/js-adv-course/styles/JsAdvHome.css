@@ -1249,6 +1249,19 @@ html.dark .js-adv-course-root .hl-punct { color: var(--text-muted); }
     text-align: center;
   }
 
+  /* Code window must always be left-aligned */
+  .js-adv-course-root .jsadv-hero__code-wrap {
+    text-align: left;
+  }
+
+  .js-adv-course-root .jsadv-hero__code-line {
+    text-align: left;
+  }
+
+  .js-adv-course-root .jsadv-hero__line-content {
+    text-align: left;
+  }
+
 
   .js-adv-course-root .jsadv-hero__content {
     align-items: center;

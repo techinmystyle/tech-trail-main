@@ -1195,6 +1195,19 @@ html.dark .js-basic-course-root .jsh-float-theme { color: var(--jsh-primary); }
     align-items: center;
   }
 
+  /* Code window must always be left-aligned */
+  .js-basic-course-root .jsh-hero__code-wrap {
+    text-align: left;
+  }
+
+  .js-basic-course-root .jsh-hero__code-line {
+    text-align: left;
+  }
+
+  .js-basic-course-root .jsh-hero__line-content {
+    text-align: left;
+  }
+
   .js-basic-course-root .jsh-hero__subtitle { justify-content: center; }
 
   .js-basic-course-root .jsh-hero__trust { justify-content: center; }

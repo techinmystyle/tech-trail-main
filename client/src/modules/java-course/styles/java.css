@@ -7,28 +7,167 @@
 }
 
 /* Code editor overrides */
-.java-course-root .monaco-editor { 
-  border-radius: 0.5rem; 
-  overflow: hidden; 
+.java-course-root .monaco-editor {
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 /* Page transitions */
-.java-course-root .page-enter { 
-  opacity: 0; 
-  transform: translateY(10px); 
+.java-course-root .page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.java-course-root .page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.java-course-root .page-exit {
+  opacity: 1;
+}
+.java-course-root .page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
-.java-course-root .page-enter-active { 
-  opacity: 1; 
-  transform: translateY(0); 
-  transition: opacity 300ms, transform 300ms; 
+/* ─── Topics page — subtopic card grid ─── */
+/* Equal-height cards in each row */
+.java-subtopic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  align-items: stretch;
 }
 
-.java-course-root .page-exit { 
-  opacity: 1; 
+@media (min-width: 640px) {
+  .java-subtopic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.java-course-root .page-exit-active { 
-  opacity: 0; 
-  transition: opacity 300ms; 
+@media (min-width: 1024px) {
+  .java-subtopic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Each subtopic card stretches to fill its grid cell */
+.java-subtopic-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100px;
+}
+
+.java-subtopic-card .java-subtopic-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.java-subtopic-card .java-subtopic-card-body p {
+  flex: 1;
+}
+
+/* ─── Topic accordion card ─── */
+.java-topic-card-header {
+  padding: 1.25rem 1.5rem;
+}
+
+@media (max-width: 639px) {
+  .java-topic-card-header {
+    padding: 1rem 1rem;
+  }
+}
+
+/* ─── Subtopic page — content breathing room ─── */
+.java-content-blocks {
+  /* More vertical rhythm between content blocks */
+}
+
+.java-content-blocks > * + * {
+  margin-top: 0.75rem;
+}
+
+/* ─── Subtopic page — sidebar on mobile ─── */
+@media (max-width: 1023px) {
+  .java-subtopic-sidebar {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/* ─── Prevent content overflow ─── */
+.java-course-root .java-content-card {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.java-course-root .java-content-card pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ─── Responsive text sizing ─── */
+@media (max-width: 480px) {
+  .java-course-root h1.java-hero-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .java-course-root .java-topic-title {
+    font-size: 1rem;
+  }
+
+  .java-course-root .java-subtopic-title {
+    font-size: 0.8rem;
+  }
+}
+
+/* ─── Prevent content overflow on small screens ─── */
+.java-course-root pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.java-course-root code {
+  word-break: break-word;
+}
+
+/* ─── Quick-jump strip — touch-friendly on mobile ─── */
+@media (max-width: 639px) {
+  .java-quickjump-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ─── Accordion expand/collapse smooth height ─── */
+.java-accordion-body {
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s ease;
+}
+
+/* ─── Prev/Next nav — full width on mobile ─── */
+@media (max-width: 639px) {
+  .java-prevnext-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Content card padding responsive ─── */
+@media (max-width: 639px) {
+  .java-content-card {
+    padding: 1.25rem 1rem;
+    border-radius: 1.25rem;
+  }
+}
+
+/* ─── Sidebar max-height on mobile ─── */
+@media (max-width: 1023px) {
+  .java-sidebar-subtopics {
+    max-height: 14rem;
+  }
 }

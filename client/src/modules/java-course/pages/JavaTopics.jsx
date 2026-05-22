@@ -86,17 +86,17 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
       {/* ── Header button ── */}
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-5 text-left group focus:outline-none"
+        className="w-full flex items-center justify-between px-5 py-4 sm:px-6 sm:py-5 text-left group focus:outline-none"
         aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-4 flex-1 min-w-0">
+        <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
           {/* Gradient number badge */}
           <div
             className={`
-              w-12 h-12 rounded-xl flex-shrink-0
+              w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex-shrink-0
               bg-gradient-to-br ${topicColors[colorIdx]}
               flex items-center justify-center
-              text-white font-bold text-lg font-poppins shadow-md
+              text-white font-bold text-base sm:text-lg font-poppins shadow-md
               group-hover:scale-105 transition-transform duration-200
             `}
           >
@@ -105,7 +105,7 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h2 className="font-poppins font-semibold text-gray-900 dark:text-white text-lg leading-tight group-hover:text-java-blue dark:group-hover:text-java-orange transition-colors">
+              <h2 className="java-topic-title font-poppins font-semibold text-gray-900 dark:text-white text-base sm:text-lg leading-tight group-hover:text-java-blue dark:group-hover:text-java-orange transition-colors">
                 {topic.title}
               </h2>
               {level && (
@@ -116,7 +116,7 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
                 </span>
               )}
             </div>
-            <p className="text-gray-400 dark:text-gray-500 text-sm mt-0.5 truncate">
+            <p className="text-gray-400 dark:text-gray-500 text-xs sm:text-sm mt-0.5 line-clamp-1">
               {topic.description}
               {" · "}
               <span className={`font-semibold ${topicTextColors[colorIdx]}`}>
@@ -128,7 +128,7 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
 
         <ChevronDownIcon
           className={`
-            w-6 h-6 flex-shrink-0 ml-3
+            w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 ml-2 sm:ml-3
             text-gray-400 group-hover:text-java-blue dark:group-hover:text-java-orange
             transition-transform duration-300
             ${isOpen ? "rotate-180 !text-java-blue dark:!text-java-orange" : ""}
@@ -154,14 +154,14 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
         />
 
         {/* Subtopics grid — each card is a Link */}
-        <div className="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="p-5 java-subtopic-grid">
           {topic.subtopics.map((sub, j) => (
             <Link
               key={j}
               to={`/java-course/topic/${topic.id}/${sub.slug}`}
               state={{ topicTitle: topic.title, subtopic: sub, colorIdx }}
               className="
-                group/sub flex gap-3 p-4 rounded-xl
+                java-subtopic-card group/sub flex gap-3 p-4 rounded-xl
                 bg-gray-50 dark:bg-java-darker
                 border border-gray-100 dark:border-java-border-dark
                 hover:border-java-blue/50 dark:hover:border-java-orange/50
@@ -185,14 +185,14 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
                 </div>
               </div>
 
-              <div className="min-w-0 flex-1">
-                <h4 className="font-medium text-gray-900 dark:text-white text-sm font-poppins leading-tight mb-1 group-hover/sub:text-java-blue dark:group-hover/sub:text-java-orange transition-colors">
+              <div className="java-subtopic-card-body min-w-0 flex-1">
+                <h4 className="java-subtopic-title font-medium text-gray-900 dark:text-white text-sm font-poppins leading-tight mb-1.5 group-hover/sub:text-java-blue dark:group-hover/sub:text-java-orange transition-colors">
                   {sub.title}
                 </h4>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">
+                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2 mb-2">
                   {sub.desc}
                 </p>
-                <span className="inline-flex items-center gap-1 mt-2 text-xs font-semibold text-java-blue dark:text-java-orange opacity-0 group-hover/sub:opacity-100 transition-opacity duration-200">
+                <span className="inline-flex items-center gap-1 mt-auto text-xs font-semibold text-java-blue dark:text-java-orange opacity-0 group-hover/sub:opacity-100 transition-opacity duration-200">
                   Learn now <ArrowRightIcon className="w-3 h-3" />
                 </span>
               </div>
@@ -201,14 +201,13 @@ function TopicCard({ topic, colorIdx, isOpen, onToggle }) {
         </div>
 
         {/* Per-topic footer */}
-        <div className="px-5 pb-5 flex items-center justify-between border-t border-gray-100 dark:border-java-border-dark pt-4 mt-1">
+        <div className="px-5 pb-5 flex flex-col sm:flex-row items-start sm:items-center justify-between border-t border-gray-100 dark:border-java-border-dark pt-4 mt-1 gap-3">
           <p className="text-xs text-gray-400 dark:text-gray-500">
-            {topic.subtopics.length} subtopics · Click any card to read the
-            lesson
+            {topic.subtopics.length} subtopics · Click any card to read the lesson
           </p>
           <Link
             to="/java-course/compiler"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-java-blue dark:text-java-orange hover:underline transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-java-blue dark:text-java-orange hover:underline transition-colors shrink-0"
           >
             <CodeBracketIcon className="w-4 h-4" />
             Practice in Compiler
@@ -469,7 +468,7 @@ export default function Topics() {
           )}
 
           {/* Accordion list */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             {filteredTopics.map((topic, i) => {
               const colorIdx =
                 topicsData.findIndex((t) => t.id === topic.id) %
