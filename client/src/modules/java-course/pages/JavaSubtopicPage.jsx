@@ -474,7 +474,7 @@ Make sure the code example is complete, correct Java code that can be compiled a
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-java-darker">
       {/* ── Hero header ─────────────────────────────────────────── */}
-      <section className="relative py-16 bg-gradient-to-br from-java-dark via-[#0a1628] to-java-darker overflow-hidden">
+      <section className="relative py-12 sm:py-16 bg-gradient-to-br from-java-dark via-[#0a1628] to-java-darker overflow-hidden">
         <div
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
@@ -486,7 +486,7 @@ Make sure the code example is complete, correct Java code that can be compiled a
         <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-java-blue/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-java-orange/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full box-border">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-400 mb-6 flex-wrap overflow-x-auto">
             <Link to="/java-course" className="hover:text-java-orange transition-colors whitespace-nowrap">Home</Link>
@@ -536,9 +536,9 @@ Make sure the code example is complete, correct Java code that can be compiled a
       </section>
 
       {/* ── Content ─────────────────────────────────────────────── */}
-      <section className="py-10" ref={contentRef}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <section className="py-8 sm:py-10" ref={contentRef}>
+        <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full box-border">
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-start w-full">
 
             {/* Main lesson card */}
             <div className="java-content-card bg-white dark:bg-java-card-dark rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-java-border-dark shadow-sm p-4 sm:p-6 lg:p-8 min-h-[400px] flex-1 min-w-0 w-full overflow-hidden">
