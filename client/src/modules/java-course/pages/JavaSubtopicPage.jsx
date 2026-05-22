@@ -243,11 +243,11 @@ function ContentBlocks({ blocks }) {
             const meta = sectionMeta(block.content);
             return (
               <div key={idx} className="mt-10 mb-4 first:mt-0">
-                <div className="flex items-center gap-3">
-                  <div className={`w-9 h-9 rounded-xl ${meta.bg} ${meta.color} flex items-center justify-center flex-shrink-0`}>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl ${meta.bg} ${meta.color} flex items-center justify-center flex-shrink-0`}>
                     {meta.icon}
                   </div>
-                  <h2 className="text-xl font-bold font-poppins text-gray-900 dark:text-white">
+                  <h2 className="text-lg sm:text-xl font-bold font-poppins text-gray-900 dark:text-white break-words flex-1 min-w-0">
                     {block.content}
                   </h2>
                 </div>
@@ -260,7 +260,7 @@ function ContentBlocks({ blocks }) {
             return (
               <h3
                 key={idx}
-                className="mt-6 mb-3 text-base font-bold font-poppins text-gray-800 dark:text-gray-100"
+                className="mt-6 mb-3 text-sm sm:text-base font-bold font-poppins text-gray-800 dark:text-gray-100 break-words"
               >
                 {block.content}
               </h3>
@@ -277,7 +277,7 @@ function ContentBlocks({ blocks }) {
             return (
               <p
                 key={idx}
-                className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4"
+                className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4 break-words overflow-wrap-anywhere"
               >
                 <InlineText text={block.content} />
               </p>
@@ -292,7 +292,7 @@ function ContentBlocks({ blocks }) {
                 {block.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
                     <span className="mt-1.5 w-2 h-2 rounded-full bg-java-orange flex-shrink-0" />
-                    <span className="leading-relaxed"><InlineText text={item} /></span>
+                    <span className="leading-relaxed break-words overflow-wrap-anywhere flex-1"><InlineText text={item} /></span>
                   </li>
                 ))}
               </ul>
@@ -306,7 +306,7 @@ function ContentBlocks({ blocks }) {
                     <span className="mt-0.5 w-6 h-6 rounded-full bg-java-blue/10 text-java-blue dark:bg-java-orange/10 dark:text-java-orange font-bold text-xs flex items-center justify-center flex-shrink-0 font-poppins">
                       {j + 1}
                     </span>
-                    <span className="leading-relaxed"><InlineText text={item} /></span>
+                    <span className="leading-relaxed break-words overflow-wrap-anywhere flex-1"><InlineText text={item} /></span>
                   </li>
                 ))}
               </ol>
@@ -488,35 +488,35 @@ Make sure the code example is complete, correct Java code that can be compiled a
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6 flex-wrap">
-            <Link to="/java-course" className="hover:text-java-orange transition-colors">Home</Link>
-            <ChevronRightIcon className="w-4 h-4 flex-shrink-0" />
-            <Link to="/java-course/topics" className="hover:text-java-orange transition-colors">Topics</Link>
-            <ChevronRightIcon className="w-4 h-4 flex-shrink-0" />
+          <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-400 mb-6 flex-wrap overflow-x-auto">
+            <Link to="/java-course" className="hover:text-java-orange transition-colors whitespace-nowrap">Home</Link>
+            <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <Link to="/java-course/topics" className="hover:text-java-orange transition-colors whitespace-nowrap">Topics</Link>
+            <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
             <button
               onClick={() => navigate("/java-course/topics")}
-              className="hover:text-java-orange transition-colors text-left"
+              className="hover:text-java-orange transition-colors text-left whitespace-nowrap"
             >
               {topic.title}
             </button>
-            <ChevronRightIcon className="w-4 h-4 flex-shrink-0" />
-            <span className="text-java-orange truncate">{subtopic.title}</span>
+            <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span className="text-java-orange truncate max-w-[150px] sm:max-w-none">{subtopic.title}</span>
           </nav>
 
           {/* Topic badge */}
-          <div className="inline-flex items-center gap-2 mb-4">
+          <div className="inline-flex items-center gap-2 mb-4 flex-wrap">
             <div
-              className={`w-8 h-8 rounded-lg bg-gradient-to-br ${topicGradients[colorIdx]} flex items-center justify-center text-white font-bold text-sm font-poppins shadow-md`}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br ${topicGradients[colorIdx]} flex items-center justify-center text-white font-bold text-xs sm:text-sm font-poppins shadow-md flex-shrink-0`}
             >
               {topic.number}
             </div>
-            <span className="text-gray-300 text-sm font-medium">{topic.title}</span>
+            <span className="text-gray-300 text-xs sm:text-sm font-medium break-words">{topic.title}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold font-poppins text-white mb-4 leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-poppins text-white mb-4 leading-tight break-words">
             {subtopic.title}
           </h1>
-          <p className="text-gray-300 text-base max-w-2xl leading-relaxed mb-6">
+          <p className="text-gray-300 text-sm sm:text-base max-w-2xl leading-relaxed mb-6 break-words">
             {subtopic.desc}
           </p>
 
@@ -541,7 +541,7 @@ Make sure the code example is complete, correct Java code that can be compiled a
           <div className="flex flex-col lg:flex-row gap-8 items-start">
 
             {/* Main lesson card */}
-            <div className="java-content-card bg-white dark:bg-java-card-dark rounded-3xl border border-gray-100 dark:border-java-border-dark shadow-sm p-6 sm:p-8 min-h-[400px] flex-1 min-w-0 w-full">
+            <div className="java-content-card bg-white dark:bg-java-card-dark rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-java-border-dark shadow-sm p-4 sm:p-6 lg:p-8 min-h-[400px] flex-1 min-w-0 w-full overflow-hidden">
               {loading && <SkeletonLoader />}
 
               {error && !loading && (
