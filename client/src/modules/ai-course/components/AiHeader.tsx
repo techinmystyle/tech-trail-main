@@ -17,8 +17,6 @@ export default function AiHeader() {
   const links = [
     { to: '/ai-course', label: 'Home' },
     { to: '/ai-course/topics', label: 'Topics' },
-    { to: '/ai-course/about', label: 'About' },
-    { to: '/ai-course/contact', label: 'Contact' },
   ]
 
   return (
