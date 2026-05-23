@@ -1,99 +1,81 @@
-﻿/* ===== Aurora ModuleCard ===== */
 .os-course-root .module-card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 24px;
-    background: #0f1525;
-    border: none;
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-    box-shadow:
-        6px 6px 14px rgba(0, 0, 0, 0.5),
-        -4px -4px 10px rgba(255, 255, 255, 0.03);
+  position: relative;
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: hidden;
+  padding: 1.35rem;
+  color: var(--text-primary);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+  backdrop-filter: var(--glass-blur);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
-
 
 .os-course-root .module-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--card-accent, var(--gradient-primary));
-    opacity: 0;
-    transition: opacity var(--transition-normal);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 38%);
+  pointer-events: none;
 }
 
+.os-course-root .module-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4px;
+  background: var(--card-accent, var(--gradient-primary));
+}
 
 .os-course-root .module-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        10px 10px 24px rgba(0, 0, 0, 0.6),
-        -4px -4px 12px rgba(255, 255, 255, 0.04),
-        0 0 20px rgba(139, 92, 246, 0.1);
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 30px 88px rgba(0, 0, 0, 0.35), 0 0 34px rgba(163, 230, 53, 0.11);
 }
-
-
-.os-course-root .module-card:hover::before {
-    opacity: 1;
-}
-
 
 .os-course-root .module-card-number {
-    position: absolute;
-    top: 16px;
-    right: 18px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    opacity: 0.5;
-    padding: 2px 8px;
-    background: rgba(148, 163, 184, 0.06);
-    border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
 }
-
 
 .os-course-root .module-card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 4px;
-    filter: saturate(0.8);
+  position: relative;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  background: var(--card-accent, var(--gradient-primary));
+  border-radius: var(--radius-md);
+  font-size: 1.45rem;
 }
-
 
 .os-course-root .module-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.3;
+  position: relative;
+  margin-top: 0.35rem;
+  color: var(--text-primary);
+  font-size: 1.12rem;
+  font-weight: 900;
 }
-
 
 .os-course-root .module-card-desc {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
-
 
 .os-course-root .module-card-arrow {
-    margin-top: auto;
-    color: var(--accent-violet);
-    font-size: 1rem;
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: all var(--transition-fast);
+  position: relative;
+  margin-top: auto;
+  color: var(--accent-green);
+  font-weight: 950;
 }
-
-
-.os-course-root .module-card:hover .module-card-arrow {
-    opacity: 1;
-    transform: translateX(0);
-}
-

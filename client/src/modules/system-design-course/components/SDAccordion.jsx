@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const AccordionItem = ({ question, answer, isOpen, onToggle }) => {
   return (
-    <div className="neumorphic rounded-xl overflow-hidden">
+    <div className="sd-neumorphic-card rounded-xl overflow-hidden !p-0">
       <button
         onClick={onToggle}
         className={`w-full px-4 py-3 text-left sd-neumorphic-btn flex justify-between items-center rounded-t-xl ${isOpen ? 'rounded-b-none' : 'rounded-xl'}`}
       >
         <span className="font-medium text-gray-900 dark:text-white">{question}</span>
         {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+          <ChevronUp className="h-5 w-5 text-indigo-500 dark:text-indigo-300" />
         ) : (
           <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
         )}
@@ -26,7 +26,7 @@ const AccordionItem = ({ question, answer, isOpen, onToggle }) => {
         transition={{ duration: 0.3 }}
         className="overflow-hidden"
       >
-        <div className="p-4 sd-neumorphic">
+        <div className="p-4 sd-neumorphic !rounded-none !border-x-0 !border-b-0">
           <p className="text-gray-700 dark:text-gray-300">{answer}</p>
         </div>
       </motion.div>

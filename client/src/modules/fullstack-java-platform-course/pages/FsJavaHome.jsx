@@ -6,6 +6,8 @@ import { SiSpringboot, SiReact } from 'react-icons/si'
 import FsJavaParticleGrid from '../components/FsJavaParticleGrid'
 import FsJavaSystemFlowViz from '../components/FsJavaSystemFlowViz'
 
+import PopularCourses from '../../../components/PopularCourses'
+
 export default function FsJavaHome() {
   const [apiRunning, setApiRunning] = useState(false)
 
@@ -268,6 +270,7 @@ export default function FsJavaHome() {
           </button>
         </Link>
       </section>
+      <PopularCourses />
     </div>
   )
 }

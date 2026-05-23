@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import MlFeatureCard from '../components/MlFeatureCard'
 import MlAnimatedSection from '../components/MlAnimatedSection'
+import PopularCourses from '../../../components/PopularCourses'
 import './MlHome.css'
 
 const features = [
@@ -149,6 +150,7 @@ export default function MlHome() {
           </div>
         </MlAnimatedSection>
       </section>
+      <PopularCourses />
     </main>
   )
 }

@@ -14,7 +14,7 @@ export default function Sidebar() {
         {grouped.map(cat => (
           <div key={cat.id} className="mb-6">
             <p className="text-xs tracking-widest uppercase mb-3 px-1"
-              style={{ color: "rgba(196,160,100,0.35)" }}>
+              style={{ color: "rgba(124,58,237,0.45)" }}>
               {cat.label}
             </p>
             {cat.topics.map(topic => {
@@ -22,11 +22,11 @@ export default function Sidebar() {
               return (
                 <Link key={topic.id} to={`/genai-course/${topic.id}`}
                   className="flex items-center gap-2.5 py-2 px-1 text-xs font-light transition-all duration-200 group"
-                  style={{ color: active ? "#c4a064" : "#4a3f35",
-                    borderLeft: active ? "1px solid rgba(196,160,100,0.5)" : "1px solid transparent",
+                  style={{ color: active ? "#a78bfa" : "#475569",
+                    borderLeft: active ? "1px solid rgba(124,58,237,0.5)" : "1px solid transparent",
                     paddingLeft: active ? "0.75rem" : "0.25rem" }}
-                  onMouseEnter={e => { if (!active) e.currentTarget.style.color = "#8a7a6a"; }}
-                  onMouseLeave={e => { if (!active) e.currentTarget.style.color = "#4a3f35"; }}
+                  onMouseEnter={e => { if (!active) e.currentTarget.style.color = "#a78bfa"; }}
+                  onMouseLeave={e => { if (!active) e.currentTarget.style.color = "#475569"; }}
                 >
                   {topic.title}
                 </Link>

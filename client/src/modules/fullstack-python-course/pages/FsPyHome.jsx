@@ -1,7 +1,8 @@
-﻿import { useRef } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { learningPaths } from '../data/topics';
+import PopularCourses from '../../../components/PopularCourses';
 
 export default function FsPyHome() {
   const navigate = useNavigate();
@@ -110,6 +111,7 @@ export default function FsPyHome() {
           </button>
         </motion.div>
       </section>
+      <PopularCourses />
     </div>
   );
 }

@@ -75,11 +75,11 @@ export default function DscSubtopicPage() {
       <div className="dsc-subtopic-header">
         <div className="dsc-breadcrumbs">
           <Link to="/dsc-course">Home</Link>
-          <span className="dsc-separator">›</span>
+          <span className="dsc-separator">/</span>
           <Link to="/dsc-course/topics">Topics</Link>
-          <span className="dsc-separator">›</span>
+          <span className="dsc-separator">/</span>
           <Link to={`/dsc-course/topics#dsc-${content.topicId}`}>{content.topicTitle}</Link>
-          <span className="dsc-separator">›</span>
+          <span className="dsc-separator">/</span>
           <span>{content.title}</span>
         </div>
         <h1 className="dsc-subtopic-title">{content.title}</h1>

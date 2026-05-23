@@ -257,12 +257,12 @@ const Home = () => {
       {/* About Section */}
       <section className="about">
         <div className="container">
+          <h2 className="about-section-heading" data-aos="fade-up">About Tech In My Style</h2>
           <div className="about-content" data-aos="fade-up">
             <div className="about-image">
               <i className="fas fa-graduation-cap"></i>
             </div>
             <div className="about-text">
-              <h2>About Tech In My Style</h2>
               <p>We are a passionate team of educators and developers dedicated to making technology education accessible to everyone. Our mission is to empower learners with practical skills and knowledge through comprehensive, beginner-friendly courses.</p>
               <p>With courses covering HTML, CSS, JavaScript, Python, Java, C, AI, ML, DL, and Data Science, we provide a complete learning path for aspiring developers and tech enthusiasts.</p>
               <Link to="/about-us" className="btn primary">Learn More About Us</Link>

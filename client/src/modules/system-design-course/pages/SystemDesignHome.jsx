@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Network, Layers, Zap, BookOpen, Target, Search, BarChart3, Globe, Server } from 'lucide-react';
+import { Zap, BookOpen, Globe, Server, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import SDCard from '../components/SDCard';
 import { useNavigate } from 'react-router-dom';
+import PopularCourses from '../../../components/PopularCourses';
 
 export default function SystemDesignHome() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function SystemDesignHome() {
       title: 'Level 1: Basics',
       description: 'Fundamental concepts of system design',
       icon: <BookOpen className="h-8 w-8" />,
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-500 to-indigo-700',
       topics: [
         { name: 'System Design Introduction', path: '/system-design-course/level1/system-design-intro' },
         { name: 'Client-Server Architecture', path: '/system-design-course/level1/client-server' },
@@ -27,7 +28,7 @@ export default function SystemDesignHome() {
       title: 'Level 2: Core',
       description: 'Essential components and patterns',
       icon: <Zap className="h-8 w-8" />,
-      color: 'from-green-500 to-teal-600',
+      color: 'from-emerald-500 to-cyan-600',
       topics: [
         { name: 'Load Balancer', path: '/system-design-course/level2/load-balancer' },
         { name: 'Databases', path: '/system-design-course/level2/databases' },
@@ -41,7 +42,7 @@ export default function SystemDesignHome() {
       title: 'Level 3: Advanced',
       description: 'Complex architectural patterns',
       icon: <Globe className="h-8 w-8" />,
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-fuchsia-500 to-violet-700',
       topics: [
         { name: 'Microservices', path: '/system-design-course/level3/microservices' },
         { name: 'API Gateway', path: '/system-design-course/level3/api-gateway' },
@@ -55,7 +56,7 @@ export default function SystemDesignHome() {
       title: 'Level 4: System Design',
       description: 'Real-world system implementations',
       icon: <Server className="h-8 w-8" />,
-      color: 'from-red-500 to-orange-600',
+      color: 'from-rose-500 to-orange-600',
       topics: [
         { name: 'WhatsApp', path: '/system-design-course/level4/whatsapp' },
         { name: 'Instagram', path: '/system-design-course/level4/instagram' },
@@ -71,20 +72,30 @@ export default function SystemDesignHome() {
   };
 
   return (
-    <div className="p-6 space-y-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="text-center mb-12 sd-neumorphic-card">
-        <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-          System Design Learning Platform
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Master system design concepts from basics to real-world implementations
-        </p>
-      </div>
+    <div className="mx-auto max-w-7xl space-y-8 px-4 py-5 sm:px-6 lg:px-8">
+      <SDCard className="overflow-hidden" animate={false}>
+        <div className="relative bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600 p-8 text-white">
+          <div className="absolute right-4 top-4 hidden rounded-full border border-white/30 bg-white/15 p-2 backdrop-blur sm:block">
+            <Sparkles className="h-5 w-5" />
+          </div>
+          <h1 className="mb-3 text-4xl font-black tracking-tight md:text-5xl">
+            System Design, Reimagined
+          </h1>
+          <p className="max-w-3xl text-sm opacity-95 sm:text-base">
+            Learn architecture from first principles to real-world case studies through visual flows, practical trade-offs,
+            and interview-ready patterns.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {['Scalable Patterns', 'Interview Focused', 'Visual Architecture'].map((chip) => (
+              <span key={chip} className="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold backdrop-blur">
+                {chip}
+              </span>
+            ))}
+          </div>
+        </div>
+      </SDCard>
 
-      
-      {/* Levels Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="sd-level-grid">
         {levels.map((level) => (
           <SDCard key={level.id} className="h-full">
             <div className={`bg-gradient-to-r ${level.color} text-white p-6 rounded-t-2xl`}>
@@ -104,13 +115,13 @@ export default function SystemDesignHome() {
                   <button
                     key={index}
                     onClick={() => handleTopicClick(topic.path)}
-                    className="w-full text-left p-4 sd-neumorphic-btn rounded-lg transition-all hover:scale-105 group"
+                    className="w-full text-left p-4 sd-neumorphic-btn rounded-lg transition-all group"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      <span className="text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300">
                         {topic.name}
                       </span>
-                      <Network className="h-4 w-4 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+                      <ArrowRight className="h-4 w-4 text-gray-400 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-indigo-500 dark:group-hover:text-indigo-300" />
                     </div>
                   </button>
                 ))}
@@ -119,7 +130,24 @@ export default function SystemDesignHome() {
           </SDCard>
         ))}
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
+        <SDCard animate={false}>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {['Build intuition', 'Practice trade-offs', 'Design under constraints'].map((item) => (
+              <div key={item} className="sd-neumorphic-btn flex items-center gap-2 px-4 py-3">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                <span className="text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </SDCard>
+      </motion.div>
 
+      <PopularCourses />
     </div>
   );
 }

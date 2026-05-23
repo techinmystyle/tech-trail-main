@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { modules } from '../data/cTopics';
+import PopularCourses from '../../../components/PopularCourses';
 import './CHome.css';
 
 export default function CHome() {
@@ -183,6 +184,8 @@ export default function CHome() {
           </div>
         </div>
       </section>
+
+      <PopularCourses />
     </>
   );
 }

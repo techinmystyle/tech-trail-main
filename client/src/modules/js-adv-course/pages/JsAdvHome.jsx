@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import JsAdvNavbar, { useDarkMode } from '../components/JsAdvNavbar'
 import JsAdvFooter from '../components/JsAdvFooter'
 import JsAdvTopicsData from '../data/JsAdvTopicsData'
+import PopularCourses from '../../../components/PopularCourses'
 import '../styles/JsAdvHome.css'
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -173,9 +174,8 @@ const CODE_LINES = [
    STATS — animated counters
 ───────────────────────────────────────────────────────────────────────────── */
 const STATS = [
-  { icon: 'bi bi-book-fill',             end: 54,  suffix: '+',  label: 'JsAdvTopics'   },
+  { icon: 'bi bi-book-fill',             end: 54,  suffix: '+',  label: 'Topics'   },
   { icon: 'bi bi-grid-3x3-gap-fill',     end: 13,  suffix: '',   label: 'Modules'  },
-  { icon: 'bi bi-layers-fill',           end: 5,   suffix: '',   label: 'JsAdvProjects' },
   { icon: 'bi bi-people-fill',           end: 10,  suffix: 'K+', label: 'Learners' },
 ]
 
@@ -189,20 +189,6 @@ const FEATURES = [
     desc:  'Write, run, and test JavaScript directly in your browser — no setup needed.',
     link:  '/js-adv-course/compiler',
     color: 'cyan',
-  },
-  {
-    icon:  'bi bi-graph-up-arrow',
-    title: 'Progress Tracking',
-    desc:  'Monitor your learning journey and see how far you have come.',
-    link:  '/js-adv-course/dashboard',
-    color: 'purple',
-  },
-  {
-    icon:  'bi bi-layers-fill',
-    title: 'Real JsAdvProjects',
-    desc:  'Build production-grade JavaScript applications that solidify every concept.',
-    link:  '/js-adv-course/projects',
-    color: 'orange',
   },
   {
     icon:  'bi bi-journal-code',
@@ -376,10 +362,10 @@ export default function JsAdvHome() {
                     Start Learning
                     <i className="bi bi-arrow-right" aria-hidden="true" />
                   </Link>
-                  <a href="#topics-section" className="jsadv-btn jsadv-btn--ghost">
+                  <Link to="/js-adv-course/topics" className="jsadv-btn jsadv-btn--ghost">
                     Explore JsAdvTopics
                     <i className="bi bi-chevron-down" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="jsadv-hero__trust">
@@ -498,78 +484,9 @@ export default function JsAdvHome() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════════
-            COURSES / MODULES GRID
+            POPULAR COURSES
         ══════════════════════════════════════════════════════════════ */}
-        <section
-          className="jsadv-courses-section"
-          id="topics-section"
-          aria-labelledby="courses-heading"
-        >
-          <div className="container">
-
-            <div className="jsadv-courses-section__header">
-              <div className="jsadv-courses-section__pill">
-                <i className="bi bi-collection-fill" aria-hidden="true" />
-                13 Modules
-              </div>
-              <h2 className="jsadv-courses-section__title" id="courses-heading">
-                What You Will Master
-              </h2>
-              <p className="jsadv-courses-section__desc">
-                From closures and prototypes to design patterns, async mastery,
-                and real-world JavaScript architecture — every advanced concept
-                you need to write production-quality code.
-              </p>
-            </div>
-
-            <div className="jsadv-courses-grid">
-              {modules.slice(0, 12).map((mod, i) => (
-                <Link
-                  key={mod.id}
-                  to="/js-adv-course/topics"
-                  className="jsadv-course-card"
-                  style={{
-                    '--accent': mod.color,
-                    animationDelay: `${i * 0.06}s`,
-                  }}
-                  aria-label={`${mod.title} — ${mod.topics.length} topics`}
-                >
-                  <div
-                    className="jsadv-course-card__icon"
-                    style={{ color: mod.color }}
-                    aria-hidden="true"
-                  >
-                    <i className={mod.icon} />
-                  </div>
-
-                  <div className="jsadv-course-card__meta">
-                    <span className="jsadv-course-card__count">
-                      {mod.topics.length}
-                      {' '}
-                      {mod.topics.length === 1 ? 'topic' : 'topics'}
-                    </span>
-                  </div>
-
-                  <h3 className="jsadv-course-card__title">{mod.title}</h3>
-                  <p className="jsadv-course-card__desc">{mod.description}</p>
-
-                  <span className="jsadv-course-card__cta" aria-hidden="true">
-                    Explore
-                    <i className="bi bi-arrow-right-short" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-
-            <div className="jsadv-courses-section__footer">
-              <Link to="/js-adv-course/topics" className="jsadv-btn jsadv-btn--primary">
-                View All JsAdvTopics
-                <i className="bi bi-arrow-right" aria-hidden="true" />
-              </Link>
-            </div>
-
-          </div>
-        </section>
+        <PopularCourses />
 
         {/* ══════════════════════════════════════════════════════════════
             FEATURES

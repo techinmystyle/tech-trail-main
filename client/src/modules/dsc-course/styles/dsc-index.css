@@ -1,37 +1,26 @@
-/* ===== DSC In My Style — Scoped Design System ===== */
-
-.dsc-course-root {
-  --dsc-primary-50: #eff6ff;
-  --dsc-primary-100: #dbeafe;
-  --dsc-primary-200: #bfdbfe;
-  --dsc-primary-300: #93c5fd;
-  --dsc-primary-400: #60a5fa;
-  --dsc-primary-500: #3b82f6;
-  --dsc-primary-600: #2563eb;
-  --dsc-primary-700: #1d4ed8;
-  --dsc-primary-800: #1e40af;
-  --dsc-primary-900: #1e3a8a;
-  --dsc-secondary-50: #f0fdfa;
-  --dsc-secondary-100: #ccfbf1;
-  --dsc-secondary-500: #14b8a6;
-  --dsc-secondary-600: #0d9488;
-  --dsc-accent-500: #f97316;
-  --dsc-accent-600: #ea580c;
-  --dsc-success-500: #22c55e;
-  --dsc-warning-500: #eab308;
-  --dsc-error-500: #ef4444;
-  --dsc-neutral-50: #f8fafc;
-  --dsc-neutral-100: #f1f5f9;
-  --dsc-neutral-200: #e2e8f0;
-  --dsc-neutral-300: #cbd5e1;
-  --dsc-neutral-400: #94a3b8;
-  --dsc-neutral-500: #64748b;
-  --dsc-neutral-600: #475569;
-  --dsc-neutral-700: #334155;
-  --dsc-neutral-800: #1e293b;
-  --dsc-neutral-900: #0f172a;
-  --dsc-font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --dsc-font-mono: 'Roboto Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+:root {
+  --dsc-primary: #38bdf8;
+  --dsc-primary-dark: #0284c7;
+  --dsc-primary-soft: rgba(56, 189, 248, 0.16);
+  --dsc-secondary: #34d399;
+  --dsc-secondary-soft: rgba(52, 211, 153, 0.16);
+  --dsc-accent: #c084fc;
+  --dsc-accent-strong: #7c3aed;
+  --dsc-coral: #fb7185;
+  --dsc-amber: #fbbf24;
+  --dsc-ink: #07111f;
+  --dsc-text: #dbeafe;
+  --dsc-muted: #99adc7;
+  --dsc-border: rgba(148, 163, 184, 0.22);
+  --dsc-glass: rgba(15, 23, 42, 0.68);
+  --dsc-glass-strong: rgba(15, 23, 42, 0.84);
+  --dsc-glass-light: rgba(255, 255, 255, 0.08);
+  --dsc-surface: rgba(15, 23, 42, 0.78);
+  --dsc-surface-soft: rgba(30, 41, 59, 0.62);
+  --dsc-light-card: rgba(255, 255, 255, 0.86);
+  --dsc-light-text: #0f172a;
+  --dsc-light-muted: #526071;
+  --dsc-dark: #050816;
   --dsc-space-1: 0.25rem;
   --dsc-space-2: 0.5rem;
   --dsc-space-3: 0.75rem;
@@ -43,105 +32,89 @@
   --dsc-space-12: 3rem;
   --dsc-space-16: 4rem;
   --dsc-space-20: 5rem;
-  --dsc-radius-sm: 0.125rem;
-  --dsc-radius: 0.25rem;
-  --dsc-radius-md: 0.375rem;
-  --dsc-radius-lg: 0.5rem;
-  --dsc-radius-xl: 0.75rem;
-  --dsc-radius-2xl: 1rem;
-  --dsc-radius-full: 9999px;
-  --dsc-shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
-  --dsc-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
-  --dsc-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-  --dsc-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-  --dsc-shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-  --dsc-transition-fast: 150ms;
-  --dsc-transition: 250ms;
-  --dsc-z-50: 50;
+  --dsc-radius-sm: 7px;
+  --dsc-radius: 10px;
+  --dsc-radius-lg: 14px;
+  --dsc-shadow-sm: 0 10px 25px rgba(0, 0, 0, 0.14);
+  --dsc-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  --dsc-shadow-lg: 0 34px 95px rgba(0, 0, 0, 0.34);
+  --dsc-glow: 0 0 38px rgba(56, 189, 248, 0.22);
+  --dsc-font-main: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --dsc-font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  --dsc-transition: 190ms ease;
+}
 
-  font-family: var(--dsc-font-main);
-  color: var(--dsc-neutral-800);
-  background-color: var(--dsc-neutral-50);
-  line-height: 1.5;
+.dsc-course-root {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  color: var(--dsc-text);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.34), transparent 31rem),
+    radial-gradient(circle at 86% 4%, rgba(192, 132, 252, 0.34), transparent 28rem),
+    radial-gradient(circle at 76% 58%, rgba(52, 211, 153, 0.2), transparent 27rem),
+    linear-gradient(135deg, #06111f 0%, #0b1020 44%, #150e24 100%);
+  font-family: var(--dsc-font-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dsc-course-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.dsc-course-root *,
+.dsc-course-root *::before,
+.dsc-course-root *::after {
   box-sizing: border-box;
 }
 
-.dsc-course-root *, .dsc-course-root *::before, .dsc-course-root *::after {
-  box-sizing: border-box;
+.dsc-course-root main {
+  min-height: 60vh;
 }
 
-.dsc-course-root main { flex: 1; }
-
-.dsc-course-root h1, .dsc-course-root h2, .dsc-course-root h3,
-.dsc-course-root h4, .dsc-course-root h5, .dsc-course-root h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--dsc-space-4);
-  color: var(--dsc-neutral-900);
+.dsc-course-root h1,
+.dsc-course-root h2,
+.dsc-course-root h3,
+.dsc-course-root h4,
+.dsc-course-root p,
+.dsc-course-root ul,
+.dsc-course-root pre {
+  margin-top: 0;
 }
-.dsc-course-root h1 { font-size: 2.5rem; }
-.dsc-course-root h2 { font-size: 2rem; }
-.dsc-course-root h3 { font-size: 1.5rem; }
-.dsc-course-root h4 { font-size: 1.25rem; }
-.dsc-course-root p { margin-bottom: var(--dsc-space-4); }
-.dsc-course-root a { color: var(--dsc-primary-600); text-decoration: none; transition: color var(--dsc-transition-fast); }
-.dsc-course-root a:hover { color: var(--dsc-primary-700); }
-.dsc-course-root ul, .dsc-course-root ol { padding-left: var(--dsc-space-6); margin-bottom: var(--dsc-space-4); }
-.dsc-course-root li { margin-bottom: var(--dsc-space-2); }
-.dsc-course-root img { max-width: 100%; height: auto; }
-.dsc-course-root button { cursor: pointer; font-family: var(--dsc-font-main); border: none; background: none; }
-.dsc-course-root code { font-family: var(--dsc-font-mono); background-color: var(--dsc-neutral-100); padding: var(--dsc-space-1) var(--dsc-space-2); border-radius: var(--dsc-radius); font-size: 0.9em; }
-.dsc-course-root pre { background-color: var(--dsc-neutral-800); color: var(--dsc-neutral-100); padding: var(--dsc-space-4); border-radius: var(--dsc-radius-md); overflow-x: auto; margin-bottom: var(--dsc-space-4); }
-.dsc-course-root pre code { background-color: transparent; padding: 0; font-size: 0.875rem; }
 
-/* Animations */
-@keyframes dsc-fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.dsc-course-root .dsc-fade-in { animation: dsc-fadeIn 0.5s ease-out forwards; }
-
-/* Header */
-.dsc-course-root .dsc-header {
-  background-color: var(--dsc-neutral-50);
-  box-shadow: var(--dsc-shadow);
-  padding: var(--dsc-space-4) var(--dsc-space-6);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: var(--dsc-z-50);
+.dsc-course-root h1,
+.dsc-course-root h2,
+.dsc-course-root h3,
+.dsc-course-root h4 {
+  color: #f8fbff;
+  line-height: 1.12;
+  letter-spacing: 0;
 }
-.dsc-course-root .dsc-logo h1 { font-size: 1.5rem; margin-bottom: 0; color: var(--dsc-primary-700); }
-.dsc-course-root .dsc-nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
-.dsc-course-root .dsc-nav li { margin: 0 var(--dsc-space-4); }
-.dsc-course-root .dsc-nav a { color: var(--dsc-neutral-700); font-weight: 500; padding: var(--dsc-space-2) 0; position: relative; }
-.dsc-course-root .dsc-nav a:hover { color: var(--dsc-primary-600); }
-.dsc-course-root .dsc-nav a.active { color: var(--dsc-primary-600); }
-.dsc-course-root .dsc-nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: var(--dsc-primary-600); }
-.dsc-course-root .dsc-mobile-menu-btn { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; background: transparent; border: none; cursor: pointer; padding: 0; }
-.dsc-course-root .dsc-mobile-menu-btn span { width: 100%; height: 3px; background-color: var(--dsc-neutral-800); border-radius: var(--dsc-radius-full); transition: all var(--dsc-transition-fast); }
 
-/* Footer */
-.dsc-course-root .dsc-footer { background-color: var(--dsc-neutral-800); color: var(--dsc-neutral-100); padding: var(--dsc-space-10) var(--dsc-space-6) var(--dsc-space-6); margin-top: var(--dsc-space-16); }
-.dsc-course-root .dsc-footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--dsc-space-8); max-width: 1200px; margin: 0 auto; }
-.dsc-course-root .dsc-footer-logo h2 { color: var(--dsc-neutral-100); margin-bottom: var(--dsc-space-2); }
-.dsc-course-root .dsc-footer-links h3, .dsc-course-root .dsc-footer-social h3 { color: var(--dsc-neutral-100); margin-bottom: var(--dsc-space-4); font-size: 1.25rem; }
-.dsc-course-root .dsc-footer-links ul { list-style: none; padding: 0; margin: 0; }
-.dsc-course-root .dsc-footer-links a { color: var(--dsc-neutral-300); display: inline-block; margin-bottom: var(--dsc-space-2); }
-.dsc-course-root .dsc-footer-links a:hover { color: var(--dsc-neutral-100); }
-.dsc-course-root .dsc-social-icons { display: flex; gap: var(--dsc-space-4); }
-.dsc-course-root .dsc-social-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--dsc-radius-full); background-color: var(--dsc-neutral-700); color: var(--dsc-neutral-100); transition: all var(--dsc-transition-fast); }
-.dsc-course-root .dsc-social-icon:hover { background-color: var(--dsc-primary-600); color: var(--dsc-neutral-100); }
-.dsc-course-root .dsc-footer-bottom { border-top: 1px solid var(--dsc-neutral-700); margin-top: var(--dsc-space-8); padding-top: var(--dsc-space-6); text-align: center; max-width: 1200px; margin-left: auto; margin-right: auto; }
+.dsc-course-root a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* Mobile */
-@media (max-width: 768px) {
-  .dsc-course-root .dsc-mobile-menu-btn { display: flex; }
-  .dsc-course-root .dsc-nav { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--dsc-neutral-50); box-shadow: var(--dsc-shadow-md); padding: var(--dsc-space-4); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all var(--dsc-transition); }
-  .dsc-course-root .dsc-nav.open { transform: translateY(0); opacity: 1; visibility: visible; }
-  .dsc-course-root .dsc-nav ul { flex-direction: column; }
-  .dsc-course-root .dsc-nav li { margin: var(--dsc-space-2) 0; }
-  .dsc-course-root .dsc-footer-content { flex-direction: column; gap: var(--dsc-space-6); }
+.dsc-course-root button,
+.dsc-course-root a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dsc-course-root :focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.42);
+  outline-offset: 3px;
+}
+
+.dsc-course-root img {
+  max-width: 100%;
+  display: block;
 }

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import JsNavbar, { useDarkMode } from "../components/JsNavbar";
 import JsFooter from "../components/JsFooter";
+import PopularCourses from "../../../components/PopularCourses";
 import "../styles/JsHome.css";
 
 /* ─── Data ─────────────────────────────────────────────────────── */
@@ -221,10 +222,10 @@ export default function JsHome() {
                   <i className="bi bi-play-circle-fill" />
                   Start Learning
                 </Link>
-                <a href="#topics" className="jsh-btn jsh-btn--ghost jsh-btn--lg">
+                <Link to={window.location.pathname.includes('javascript-basic-course') ? "/javascript-basic-course/js" : "/js-basic-course/js"} className="jsh-btn jsh-btn--ghost jsh-btn--lg">
                   <i className="bi bi-grid-fill" />
                   Browse Topics
-                </a>
+                </Link>
               </div>
 
               <div className="jsh-hero__trust">
@@ -346,70 +347,8 @@ export default function JsHome() {
           </div>
         </section>
 
-        {/* ══════════ TOPICS GRID ══════════ */}
-        <section className="jsh-topics-section" id="topics" aria-labelledby="topics-heading">
-          <div className="jsh-container">
-            <div className="jsh-section-header">
-              <div className="jsh-section-pill">
-                <i className="bi bi-collection-fill" />
-                All Topics
-              </div>
-              <h2 className="jsh-section-title" id="topics-heading">
-                JavaScript Basics — Topic by Topic
-              </h2>
-              <p className="jsh-section-desc">
-                Every topic has a dedicated page with a full code example, live
-                preview, and a Monaco editor so you can experiment in real time.
-              </p>
-            </div>
-
-            <div className="jsh-topics-grid">
-              {topics.map((t, i) => (
-                <div
-                  key={t.name}
-                  className={`jsh-topic-card${t.available ? " jsh-topic-card--active" : ""}`}
-                  style={{ animationDelay: `${i * 0.06}s` }}
-                  onClick={() => t.available && (window.location.href = t.link)}
-                  role={t.available ? "button" : undefined}
-                  tabIndex={t.available ? 0 : undefined}
-                  onKeyDown={(e) =>
-                    e.key === "Enter" && t.available && (window.location.href = t.link)
-                  }
-                >
-                  <div className="jsh-topic-card__icon">
-                    <i className={t.icon} aria-hidden="true" />
-                  </div>
-                  <div className="jsh-topic-card__body">
-                    <h3 className="jsh-topic-card__title">{t.name}</h3>
-                    <p className="jsh-topic-card__desc">{t.desc}</p>
-                  </div>
-                  {t.available ? (
-                    <Link
-                      to={t.link}
-                      className="jsh-btn jsh-btn--sm jsh-btn--primary"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <i className="bi bi-play-fill" />
-                      Explore
-                    </Link>
-                  ) : (
-                    <span className="jsh-btn jsh-btn--sm jsh-btn--disabled">
-                      <i className="bi bi-hourglass-split" />
-                      Coming Soon
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="jsh-topics-cta">
-              <Link to={window.location.pathname.includes('javascript-basic-course') ? "/javascript-basic-course/js" : "/js-basic-course/js"} className="jsh-btn jsh-btn--primary jsh-btn--lg">
-                <i className="bi bi-grid-fill" />
-                View All Topics A–Z
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* ══════════ POPULAR COURSES ══════════ */}
+        <PopularCourses />
 
         {/* ══════════ TESTIMONIALS ══════════ */}
         <section className="jsh-testimonials-section" aria-labelledby="testimonials-heading">

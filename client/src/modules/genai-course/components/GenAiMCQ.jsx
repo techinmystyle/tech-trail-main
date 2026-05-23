@@ -53,7 +53,7 @@ export default function MCQ({ questions }) {
               <p className="text-white font-medium text-sm leading-relaxed">{q.q}</p>
             </div>
 
-            <div className="space-y-2 mb-4 ml-10">
+            <div className="space-y-2 mb-4 ml-4 sm:ml-10">
               {q.options.map((opt, oi) => {
                 let bg, border, color, icon;
                 if (!isRevealed) {
@@ -76,7 +76,7 @@ export default function MCQ({ questions }) {
               })}
             </div>
 
-            <div className="ml-10">
+            <div className="ml-4 sm:ml-10">
               <button onClick={() => reveal(qi)} disabled={sel === undefined || isRevealed}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
                 style={sel !== undefined && !isRevealed
@@ -90,7 +90,7 @@ export default function MCQ({ questions }) {
             <AnimatePresence>
               {isRevealed && (
                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }} className="mt-3 ml-10">
+                  exit={{ opacity: 0, height: 0 }} className="mt-3 ml-4 sm:ml-10">
                   <div className="flex gap-3 p-3 rounded-xl text-sm"
                     style={{ background: 'rgba(6,182,212,0.08)', border: '1px solid rgba(6,182,212,0.2)' }}>
                     <i className="fas fa-lightbulb text-cyan-400 flex-shrink-0 mt-0.5" style={{ fontSize: '13px' }} />

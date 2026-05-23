@@ -1,10 +1,11 @@
-﻿import { useRef } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { IoChevronDown } from 'react-icons/io5';
 import { MdLockOutline, MdCheckCircle } from 'react-icons/md';
 import { realms, learningPath, REALM_ICONS } from '../data/dsaTopics';
 import { useDsaProgress } from '../hooks/useDsaProgress';
+import PopularCourses from '../../../components/PopularCourses';
 
 const GiRobberMask = ({ style }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '1em', height: '1em', display: 'inline-block', ...style }}>
@@ -211,6 +212,7 @@ export default function DsaHome() {
         </motion.div>
       </section>
 
+      <PopularCourses />
     </div>
   );
 }

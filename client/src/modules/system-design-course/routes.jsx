@@ -1,7 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { DarkModeProvider } from './contexts/SDDarkModeContext';
 import SystemDesignHome from './pages/SystemDesignHome';
 import SDNavbar from './components/SDNavbar';
+import SDFooter from './components/SDFooter';
 import './styles/system-design.css';
 
 // Level 1 Components
@@ -37,38 +38,42 @@ export default function SystemDesignRoutes() {
     <div className="system-design-course-root">
       <DarkModeProvider>
         <SDNavbar />
-        <div className="sd-course min-h-screen transition-colors pt-16">
-          <Routes>
-            <Route path="/" element={<SystemDesignHome />} />
-            
-            {/* Level 1 Routes */}
-            <Route path="/level1/system-design-intro" element={<SystemDesignIntro />} />
-            <Route path="/level1/client-server" element={<ClientServer />} />
-            <Route path="/level1/latency-vs-throughput" element={<LatencyVsThroughput />} />
-            <Route path="/level1/cap-theorem" element={<CAPTheorem />} />
-            <Route path="/level1/scaling" element={<Scaling />} />
-            
-            {/* Level 2 Routes */}
-            <Route path="/level2/load-balancer" element={<LoadBalancer />} />
-            <Route path="/level2/databases" element={<Databases />} />
-            <Route path="/level2/caching" element={<Caching />} />
-            <Route path="/level2/cdn" element={<CDN />} />
-            <Route path="/level2/message-queue" element={<MessageQueue />} />
-            
-            {/* Level 3 Routes */}
-            <Route path="/level3/microservices" element={<Microservices />} />
-            <Route path="/level3/api-gateway" element={<APIGateway />} />
-            <Route path="/level3/rate-limiting" element={<RateLimiting />} />
-            <Route path="/level3/sharding" element={<Sharding />} />
-            <Route path="/level3/consistent-hashing" element={<ConsistentHashing />} />
-            
-            {/* Level 4 Routes */}
-            <Route path="/level4/whatsapp" element={<WhatsApp />} />
-            <Route path="/level4/instagram" element={<Instagram />} />
-            <Route path="/level4/netflix" element={<Netflix />} />
-            <Route path="/level4/url-shortener" element={<URLShortener />} />
-            <Route path="/level4/uber" element={<Uber />} />
-          </Routes>
+        <div className="sd-course min-h-screen transition-colors pb-10 flex flex-col">
+          <div className="flex-1">
+            <Routes>
+              <Route index element={<SystemDesignHome />} />
+              
+              {/* Level 1 Routes */}
+              <Route path="level1/system-design-intro" element={<SystemDesignIntro />} />
+              <Route path="level1/client-server" element={<ClientServer />} />
+              <Route path="level1/latency-vs-throughput" element={<LatencyVsThroughput />} />
+              <Route path="level1/cap-theorem" element={<CAPTheorem />} />
+              <Route path="level1/scaling" element={<Scaling />} />
+              
+              {/* Level 2 Routes */}
+              <Route path="level2/load-balancer" element={<LoadBalancer />} />
+              <Route path="level2/databases" element={<Databases />} />
+              <Route path="level2/caching" element={<Caching />} />
+              <Route path="level2/cdn" element={<CDN />} />
+              <Route path="level2/message-queue" element={<MessageQueue />} />
+              
+              {/* Level 3 Routes */}
+              <Route path="level3/microservices" element={<Microservices />} />
+              <Route path="level3/api-gateway" element={<APIGateway />} />
+              <Route path="level3/rate-limiting" element={<RateLimiting />} />
+              <Route path="level3/sharding" element={<Sharding />} />
+              <Route path="level3/consistent-hashing" element={<ConsistentHashing />} />
+              
+              {/* Level 4 Routes */}
+              <Route path="level4/whatsapp" element={<WhatsApp />} />
+              <Route path="level4/instagram" element={<Instagram />} />
+              <Route path="level4/netflix" element={<Netflix />} />
+              <Route path="level4/url-shortener" element={<URLShortener />} />
+              <Route path="level4/uber" element={<Uber />} />
+              <Route path="*" element={<Navigate to="." replace />} />
+            </Routes>
+          </div>
+          <SDFooter />
         </div>
       </DarkModeProvider>
     </div>

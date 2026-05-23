@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import NlpNavbar from './components/NlpNavbar';
+import NlpFooter from './components/NlpFooter';
 import NlpHomePage from './pages/NlpHomePage';
 import NlpTopicsPage from './pages/NlpTopicsPage';
 import NlpTopicPage from './pages/NlpTopicPage';
@@ -14,6 +15,7 @@ export default function NlpCourseRoutes() {
         <Route path="/topics" element={<NlpTopicsPage />} />
         <Route path="/topic/:topic" element={<NlpTopicPage />} />
       </Routes>
+      <NlpFooter />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDarkMode } from "../components/HtmlNavbar";
+import PopularCourses from "../../../components/PopularCourses";
 import "../styles/HtmlHome.css";
 
 /* ─── Data ─────────────────────────────────────────────────────── */
@@ -574,88 +575,7 @@ export default function HtmlHome() {
           </div>
         </section>
 
-        {/* ══════════════════ COURSES ══════════════════ */}
-        <section
-          className="courses-section"
-          id="courses"
-          aria-labelledby="courses-heading"
-        >
-          <div className="container">
-            <div className="section-header">
-              <div className="section-pill">
-                <i className="bi bi-collection-fill" />
-                Our Courses
-              </div>
-              <h2 className="section-title" id="courses-heading">
-                Popular Courses
-              </h2>
-              <p className="section-desc">
-                Explore our most popular courses designed to take you from
-                absolute beginner to confident developer, step by step.
-              </p>
-            </div>
-
-            <div className="courses-grid">
-              {courses.map((c) => (
-                <div
-                  key={c.title}
-                  className={`course-card${c.internal ? " course-card--active" : ""}`}
-                  onClick={() => c.internal && (window.location.href = c.link)}
-                  role={c.internal ? "button" : undefined}
-                  tabIndex={c.internal ? 0 : undefined}
-                  onKeyDown={(e) =>
-                    e.key === "Enter" &&
-                    c.internal &&
-                    (window.location.href = c.link)
-                  }
-                >
-                  <div className="course-card__img-wrap">
-                    <img
-                      src={c.image}
-                      alt={c.title}
-                      className="course-card__img"
-                      loading="lazy"
-                    />
-                    <span
-                      className={`course-card__badge${c.internal ? " course-card__badge--live" : ""}`}
-                    >
-                      {c.internal ? (
-                        <>
-                          <i className="bi bi-check-circle-fill" />
-                          {c.badge}
-                        </>
-                      ) : (
-                        <>
-                          <i className="bi bi-clock-fill" />
-                          {c.badge}
-                        </>
-                      )}
-                    </span>
-                  </div>
-                  <div className="course-card__body">
-                    <h3 className="course-card__title">{c.title}</h3>
-                    <p className="course-card__desc">{c.description}</p>
-                    {c.internal ? (
-                      <Link
-                        to={c.link}
-                        className="btn btn--primary btn--sm"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <i className="bi bi-play-fill" />
-                        Visit Course
-                      </Link>
-                    ) : (
-                      <span className="btn btn--disabled btn--sm">
-                        <i className="bi bi-hourglass-split" />
-                        Coming Soon
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PopularCourses />
 
         {/* ══════════════════ TESTIMONIALS ══════════════════ */}
         <section

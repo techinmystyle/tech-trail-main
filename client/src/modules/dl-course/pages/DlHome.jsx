@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DlNavbar from '../components/DlNavbar';
 import DlFooter from '../components/DlFooter';
+import PopularCourses from '../../../components/PopularCourses';
 import './DlHome.css';
 
 export default function DlHome() {
@@ -94,6 +95,7 @@ export default function DlHome() {
           </div>
         </section>
       </div>
+      <PopularCourses />
       <DlFooter />
     </>
   );

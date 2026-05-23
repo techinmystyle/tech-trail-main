@@ -6,22 +6,7 @@ const SDMermaidDiagram = ({ chart, id = 'mermaid-chart', className = '' }) => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // Initialize Mermaid only once
-    if (!isInitialized) {
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: 'default',
-        securityLevel: 'loose',
-        fontFamily: 'monospace',
-        fontSize: 16,
-        flowchart: {
-          useMaxWidth: true,
-          htmlLabels: true,
-          curve: 'basis'
-        }
-      });
-      setIsInitialized(true);
-    }
+    if (!isInitialized) setIsInitialized(true);
   }, [isInitialized]);
 
   useEffect(() => {
@@ -33,6 +18,34 @@ const SDMermaidDiagram = ({ chart, id = 'mermaid-chart', className = '' }) => {
           
           // Check if dark mode is enabled
           const isDarkMode = document.documentElement.classList.contains('dark');
+
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDarkMode ? 'dark' : 'default',
+            securityLevel: 'loose',
+            fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+            fontSize: 14,
+            flowchart: {
+              useMaxWidth: true,
+              htmlLabels: true,
+              curve: 'basis'
+            },
+            themeVariables: isDarkMode
+              ? {
+                  primaryColor: '#1e293b',
+                  primaryTextColor: '#e2e8f0',
+                  lineColor: '#a5b4fc',
+                  tertiaryColor: '#0f172a',
+                  edgeLabelBackground: '#1f2937'
+                }
+              : {
+                  primaryColor: '#e0e7ff',
+                  primaryTextColor: '#1f2937',
+                  lineColor: '#6366f1',
+                  tertiaryColor: '#f8fafc',
+                  edgeLabelBackground: '#ffffff'
+                }
+          });
           
           // Create unique ID for this render
           const uniqueId = `${id}-${Date.now()}`;
@@ -42,14 +55,6 @@ const SDMermaidDiagram = ({ chart, id = 'mermaid-chart', className = '' }) => {
           
           if (chartRef.current) {
             chartRef.current.innerHTML = svg;
-            
-            // Apply dark mode styles if needed
-            if (isDarkMode) {
-              const svgElement = chartRef.current.querySelector('svg');
-              if (svgElement) {
-                svgElement.style.filter = 'invert(1) hue-rotate(180deg)';
-              }
-            }
           }
         } catch (error) {
           console.error('Mermaid rendering error:', error);

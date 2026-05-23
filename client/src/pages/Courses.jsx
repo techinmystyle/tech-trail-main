@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // kept for potential future use
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WebGLBackground from '../components/WebGLBackground';
@@ -496,47 +496,33 @@ const Courses = () => {
     });
   };
 
+  const courseRouteMap = {
+    'HTML in My Style': '/html-course',
+    'CSS in My Style': '/css-course',
+    'Python in My Style': '/python-course',
+    'JavaScript in My Style - Basic': '/js-basic-course',
+    'JavaScript in My Style - Intermediate': '/js-int-course',
+    'JavaScript in My Style - Advanced': '/js-adv-course',
+    'Java in My Style': '/java-course',
+    'C in My Style': '/c-course',
+    'AI in My Style': '/ai-course',
+    'DL in My Style': '/dl-course',
+    'ML in My Style': '/ml-course',
+    'DSC in My Style': '/dsc-course',
+    'DSA in My Style': '/dsa-course',
+    'NLP in My Style': '/nlp-course',
+    'OS in My Style': '/os-course',
+    'System Design in My Style': '/system-design-course',
+    'Database in My Style': '/database-course',
+    'Gen AI in My Style': '/genai-course',
+    'Full Stack Python in My Style': '/fullstack-python-course',
+    'Full Stack Java in My Style': '/fullstack-java-platform-course',
+  };
+
   const handleCourseClick = (course) => {
-    if (course.name === 'HTML in My Style') {
-      navigate('/html-course');
-    } else if (course.name === 'CSS in My Style') {
-      navigate('/css-course');
-    } else if (course.name === 'Python in My Style') {
-      navigate('/python-course');
-    } else if (course.name === 'JavaScript in My Style - Basic') {
-      navigate('/js-basic-course');
-    } else if (course.name === 'JavaScript in My Style - Intermediate') {
-      navigate('/js-int-course');
-    } else if (course.name === 'JavaScript in My Style - Advanced') {
-      navigate('/js-adv-course');
-    } else if (course.name === 'Java in My Style') {
-      navigate('/java-course');
-    } else if (course.name === 'C in My Style') {
-      navigate('/c-course');
-    } else if (course.name === 'AI in My Style') {
-      navigate('/ai-course');
-    } else if (course.name === 'DL in My Style') {
-      navigate('/dl-course');
-    } else if (course.name === 'ML in My Style') {
-      navigate('/ml-course');
-    } else if (course.name === 'DSC in My Style') {
-      navigate('/dsc-course');
-    } else if (course.name === 'DSA in My Style') {
-      navigate('/dsa-course');
-    } else if (course.name === 'NLP in My Style') {
-      navigate('/nlp-course');
-    } else if (course.name === 'OS in My Style') {
-      navigate('/os-course');
-    } else if (course.name === 'System Design in My Style') {
-      navigate('/system-design-course');
-    } else if (course.name === 'Database in My Style') {
-      navigate('/database-course');
-    } else if (course.name === 'Gen AI in My Style') {
-      navigate('/genai-course');
-    } else if (course.name === 'Full Stack Python in My Style') {
-      navigate('/fullstack-python-course');
-    } else if (course.name === 'Full Stack Java in My Style') {
-      navigate('/fullstack-java-platform-course');
+    const route = courseRouteMap[course.name];
+    if (route) {
+      window.open(route, '_blank', 'noopener,noreferrer');
     } else {
       alert(`${course.name} is coming soon!`);
     }

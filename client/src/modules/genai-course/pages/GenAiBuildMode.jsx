@@ -461,10 +461,10 @@ export default function BuildMode() {
     <div className="min-h-screen pt-16">
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 neural-grid opacity-40 pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 0%, rgba(249,115,22,0.1) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 0%, rgba(124,58,237,0.12) 0%, transparent 70%)' }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-12">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6" style={{ background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.3)', color: '#fdba74' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6" style={{ background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.25)', color: '#a78bfa' }}>
               <i className="fas fa-hammer" /> Build Mode — Ship Real AI
             </div>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-4 leading-tight">Build Real <span className="gradient-text">AI Projects</span></h1>

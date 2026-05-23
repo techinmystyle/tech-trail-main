@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import AiHeader from '../components/AiHeader'
 import AiFooter from '../components/AiFooter'
+import PopularCourses from '../../../components/PopularCourses'
 import '../styles/ai-landing.css'
 
 const features = [
@@ -135,6 +136,9 @@ export default function AiHome() {
           </div>
         </div>
       </section>
+
+      {/* POPULAR COURSES */}
+      <PopularCourses />
 
       {/* CTA */}
       <div className="container">

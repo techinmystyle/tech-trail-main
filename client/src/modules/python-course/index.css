@@ -24,11 +24,14 @@
   --n9: #0a1a28;
 
   /* Semantic */
-  --bg:      var(--n1);
-  --surface: var(--n0);
-  --border:  var(--n3);
-  --text:    var(--n8);
-  --muted:   var(--n5);
+  --bg:            #0a1520;
+  --surface:       rgba(15, 30, 50, 0.85);   /* dark glass card */
+  --border:        rgba(55, 118, 171, 0.2);
+  --border-color:  rgba(55, 118, 171, 0.2);   /* used by PopularCourses cards */
+  --text:          #e2e8f0;
+  --text-secondary:#8fafc7;
+  --muted:         var(--n5);
+  --primary:       #3776AB;                   /* Python blue — used by PopularCourses section pill */
 
   /* Shadows */
   --s1: 0 1px 3px rgba(10,26,40,.06), 0 1px 2px rgba(10,26,40,.04);
@@ -49,14 +52,33 @@
   --mono: 'JetBrains Mono', monospace;
 
   font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
+  background: #0a1520;
+  color: #e2e8f0;
   line-height: 1.6;
 }
 
-.py-module-container * { box-sizing: border-box; margin: 0; padding: 0; }
-.py-module-container a { color: var(--p1); text-decoration: none; transition: color .18s; }
-.py-module-container a:hover { color: var(--p1d); }
+/* Box-sizing only — do NOT reset margin/padding globally as it breaks shared components */
+.py-module-container * { box-sizing: border-box; }
+
+/* Scope link color only to Python-namespaced elements, not shared footer/popular courses */
+.py-navbar a,
+.py-nav-menu a,
+.py-mob-drawer a,
+.py-topics-page a,
+.py-subtopic-page a,
+.py-about-page a,
+.py-contact-page a,
+.py-tasks-page a,
+.py-home a:not(.cf-footer a):not(.pc-card a) {
+  color: var(--p1);
+  text-decoration: none;
+  transition: color .18s;
+}
+.py-navbar a:hover,
+.py-nav-menu a:hover,
+.py-mob-drawer a:hover {
+  color: var(--p1d);
+}
 
 /* --- NAMESPACED NAVBAR --- */
 .py-navbar {

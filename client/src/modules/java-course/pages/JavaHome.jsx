@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { topicsData, stats, features } from '../data/topicsData';
 import { useState, useEffect, useRef } from 'react';
+import PopularCourses from '../../../components/PopularCourses';
 
 const codeLines = [
   { text: 'public class HelloWorld {', color: 'text-blue-400' },
@@ -495,7 +496,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <PopularCourses />
     </div>
   );
 }

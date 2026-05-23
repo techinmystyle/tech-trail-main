@@ -85,7 +85,7 @@ export default function DlSubtopicLayout({ title, description, examples, applica
                         {resources.books.map((b, i) => (
                           <li key={i}>
                             <a href={b.url} target="_blank" rel="noreferrer">{b.title}</a>
-                            {b.author ? ` — ${b.author}` : ''}
+                            {b.author ? ` - ${b.author}` : ''}
                           </li>
                         ))}
                       </ul>

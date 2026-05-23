@@ -9,6 +9,7 @@ import { courseModules } from '../data/courseData';
 import { useProgress } from '../hooks/useProgress';
 import DbRadarWidget from '../components/DbRadarWidget';
 import DbHUDCard from '../components/DbHUDCard';
+import PopularCourses from '../../../components/PopularCourses';
 
 export default function DbHome() {
   const { getCompletedCount } = useProgress();
@@ -310,7 +311,7 @@ export default function DbHome() {
                   </div>
                   <div>
                     <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}>
-                      {feat.title}
+                       {feat.title}
                     </h3>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
                       {feat.desc}
@@ -362,6 +363,8 @@ export default function DbHome() {
           </div>
         </motion.div>
       </section>
+
+      <PopularCourses />
     </div>
   );
 }

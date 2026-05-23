@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { nlpTopicsList } from '../data/nlpTopics';
 import NlpTopicCard from '../components/NlpTopicCard';
+import PopularCourses from '../../../components/PopularCourses';
 import { FaGraduationCap, FaCode, FaBrain, FaTrophy } from 'react-icons/fa';
 
 function TypingEffect() {
@@ -164,6 +165,8 @@ export default function NlpHomePage() {
           </motion.button>
         </motion.div>
       </section>
+
+      <PopularCourses />
 
       <footer style={{ textAlign: 'center', padding: '32px 24px', borderTop: '1px solid rgba(255,255,255,0.05)', fontSize: 13, color: '#4a5568' }}>
         Crafted with precision for NLP learners everywhere

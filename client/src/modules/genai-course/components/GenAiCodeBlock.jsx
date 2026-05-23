@@ -2,11 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const langMeta = {
-  javascript: { label: "JavaScript", icon: "fab fa-js",         color: "#c4a064" },
-  js:         { label: "JavaScript", icon: "fab fa-js",         color: "#c4a064" },
-  python:     { label: "Python",     icon: "fab fa-python",     color: "#9ab0c8" },
-  bash:       { label: "Shell",      icon: "fas fa-terminal",   color: "#7aad8a" },
-  json:       { label: "JSON",       icon: "fas fa-code",       color: "#c8ad7a" },
+  javascript: { label: "JavaScript", icon: "fab fa-js",     color: "#facc15" },
+  js:         { label: "JavaScript", icon: "fab fa-js",     color: "#facc15" },
+  python:     { label: "Python",     icon: "fab fa-python", color: "#67e8f9" },
+  bash:       { label: "Shell",      icon: "fas fa-terminal", color: "#4ade80" },
+  json:       { label: "JSON",       icon: "fas fa-code",   color: "#fb923c" },
 };
 
 function highlight(code) {
@@ -19,7 +19,7 @@ function highlight(code) {
     .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, '<span class="code-function">$1</span>');
 }
 
-export default function CodeBlock({ code, language = "javascript", title }) {
+export default function GenAiCodeBlock({ code, language = "javascript", title }) {
   const [copied, setCopied] = useState(false);
   const meta = langMeta[language] || langMeta.javascript;
 
@@ -30,43 +30,65 @@ export default function CodeBlock({ code, language = "javascript", title }) {
   };
 
   return (
-    <div style={{ background: "#060606", border: "1px solid rgba(196,160,100,0.12)" }}>
-      <div className="flex items-center justify-between px-5 py-3"
-        style={{ borderBottom: "1px solid rgba(196,160,100,0.08)", background: "rgba(196,160,100,0.03)" }}>
-        <div className="flex items-center gap-4">
-          <div className="flex gap-1.5">
-            {[0.2, 0.15, 0.1].map((o, i) => (
-              <div key={i} className="w-2.5 h-2.5 rounded-full" style={{ background: `rgba(196,160,100,${o})` }} />
+    <div style={{
+      borderRadius: 12, overflow: "hidden",
+      background: "rgba(4,4,10,0.95)",
+      border: "1px solid rgba(124,58,237,0.2)",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+    }}>
+      {/* Header */}
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "10px 16px",
+        background: "rgba(13,13,26,0.8)",
+        borderBottom: "1px solid rgba(124,58,237,0.12)",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          {/* macOS dots */}
+          <div style={{ display: "flex", gap: 6 }}>
+            {["#f87171", "#fbbf24", "#4ade80"].map((c, i) => (
+              <div key={i} style={{ width: 10, height: 10, borderRadius: "50%", background: c, opacity: 0.7 }} />
             ))}
           </div>
-          <div className="flex items-center gap-2 text-xs tracking-wider uppercase" style={{ color: meta.color, opacity: 0.7 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: meta.color, opacity: 0.8 }}>
             <i className={meta.icon} />
-            <span>{title || meta.label}</span>
+            <span style={{ letterSpacing: "0.05em" }}>{title || meta.label}</span>
           </div>
         </div>
-        <button onClick={copy}
-          className="flex items-center gap-2 text-xs tracking-wider uppercase transition-colors duration-200"
-          style={{ color: "rgba(196,160,100,0.4)" }}
-          onMouseEnter={e => e.currentTarget.style.color = "#c4a064"}
-          onMouseLeave={e => e.currentTarget.style.color = "rgba(196,160,100,0.4)"}
-        >
+
+        <button onClick={copy} style={{
+          display: "flex", alignItems: "center", gap: 6,
+          fontSize: 10, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase",
+          background: copied ? "rgba(74,222,128,0.15)" : "rgba(124,58,237,0.1)",
+          border: `1px solid ${copied ? "rgba(74,222,128,0.3)" : "rgba(124,58,237,0.25)"}`,
+          color: copied ? "#4ade80" : "#a78bfa",
+          padding: "4px 12px", borderRadius: 6, cursor: "pointer",
+          transition: "all 0.2s",
+        }}>
           <AnimatePresence mode="wait">
             {copied ? (
               <motion.span key="ok" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                className="flex items-center gap-1.5 text-rr-gold">
-                <i className="fas fa-check" /> Copied
+                style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <i className="fas fa-check" style={{ fontSize: 9 }} /> Copied
               </motion.span>
             ) : (
               <motion.span key="cp" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                className="flex items-center gap-1.5">
-                <i className="fas fa-copy" /> Copy
+                style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <i className="fas fa-copy" style={{ fontSize: 9 }} /> Copy
               </motion.span>
             )}
           </AnimatePresence>
         </button>
       </div>
-      <div className="overflow-x-auto">
-        <pre className="p-6 text-sm font-mono leading-relaxed" style={{ color: "#8a9080" }}>
+
+      {/* Code */}
+      <div style={{ overflowX: "auto" }}>
+        <pre style={{
+          margin: 0, padding: "20px 24px",
+          fontSize: 13, lineHeight: 1.8,
+          color: "#94a3b8",
+          fontFamily: "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
+        }}>
           <code dangerouslySetInnerHTML={{ __html: highlight(code) }} />
         </pre>
       </div>

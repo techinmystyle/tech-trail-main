@@ -2,22 +2,29 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 .dl-course-root {
-  --dl-primary-color: #4361ee;
-  --dl-primary-dark: #3a56d4;
-  --dl-primary-light: #738eec;
-  --dl-secondary-color: #7209b7;
-  --dl-accent-color: #4cc9f0;
-  --dl-text-primary: #333333;
-  --dl-text-secondary: #666666;
+  --dl-primary-color: #ff4d8d;
+  --dl-primary-dark: #db2777;
+  --dl-primary-light: #ff8ab5;
+  --dl-secondary-color: #8b5cf6;
+  --dl-accent-color: #22d3ee;
+  --dl-warm-color: #f59e0b;
+  --dl-green-color: #2dd4bf;
+  --dl-text-primary: #f9fbff;
+  --dl-text-secondary: #b8c4d8;
   --dl-text-light: #f8f9fa;
-  --dl-bg-dark: #121212;
-  --dl-bg-light: #f8f9fa;
-  --dl-shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
-  --dl-shadow-md: 0 4px 12px rgba(0,0,0,0.15);
-  --dl-shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
-  --dl-shadow-glass: 0 8px 32px rgba(31,38,135,0.15);
-  --dl-border-radius-sm: 4px;
-  --dl-border-radius-md: 8px;
+  --dl-bg-dark: #070712;
+  --dl-bg-light: #0b0d1a;
+  --dl-card-bg: rgba(16, 18, 36, 0.72);
+  --dl-card-bg-strong: rgba(16, 18, 36, 0.88);
+  --dl-border-glass: rgba(255, 255, 255, 0.14);
+  --dl-shadow-sm: 0 12px 32px rgba(0, 0, 0, 0.22);
+  --dl-shadow-md: 0 22px 58px rgba(0, 0, 0, 0.3);
+  --dl-shadow-lg: 0 34px 92px rgba(0, 0, 0, 0.4);
+  --dl-shadow-glass: 0 24px 70px rgba(0, 0, 0, 0.3);
+  --dl-glow-pink: 0 0 42px rgba(255, 77, 141, 0.26);
+  --dl-glow-violet: 0 0 42px rgba(139, 92, 246, 0.24);
+  --dl-border-radius-sm: 7px;
+  --dl-border-radius-md: 10px;
   --dl-border-radius-lg: 16px;
   --dl-spacing-xs: 4px;
   --dl-spacing-sm: 8px;
@@ -31,8 +38,25 @@
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--dl-text-primary);
-  background-color: var(--dl-bg-light);
+  background:
+    radial-gradient(circle at 15% 8%, rgba(255, 77, 141, 0.26), transparent 28rem),
+    radial-gradient(circle at 90% 2%, rgba(139, 92, 246, 0.28), transparent 30rem),
+    radial-gradient(circle at 72% 64%, rgba(34, 211, 238, 0.16), transparent 26rem),
+    linear-gradient(135deg, #070712 0%, #111023 48%, #16091f 100%);
   min-height: 100vh;
+}
+
+.dl-course-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
 
 .dl-course-root * {

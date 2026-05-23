@@ -6,22 +6,22 @@ const SDTabs = ({ tabs, defaultTab = 0 }) => {
 
   return (
     <div className="w-full">
-      <div className="flex space-x-1 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex flex-wrap gap-2 border-b border-indigo-200/50 pb-2 dark:border-indigo-400/20">
         {tabs.map((tab, index) => (
           <button
             key={index}
             onClick={() => setActiveTab(index)}
-            className={`px-4 py-2 font-medium text-sm transition-colors relative ${
+            className={`sd-neumorphic-btn px-4 py-2 font-medium text-sm transition-colors relative ${
               activeTab === index
-                ? 'text-blue-600 dark:text-blue-400'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                ? 'text-indigo-600 dark:text-indigo-300 ring-2 ring-indigo-400/50'
+                : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
             }`}
           >
             {tab.label}
             {activeTab === index && (
               <motion.div
                 layoutId="activeTab"
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                className="absolute bottom-0 left-2 right-2 h-0.5 bg-indigo-500 dark:bg-indigo-300"
                 initial={false}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
               />

@@ -7,7 +7,8 @@ const SDCard = ({ children, className = '', animate = true }) => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        whileHover={{ y: -2 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
         className={`sd-neumorphic-card ${className}`}
       >
         {children}

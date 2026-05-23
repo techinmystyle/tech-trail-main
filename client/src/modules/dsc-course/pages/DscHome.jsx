@@ -1,12 +1,27 @@
 import { Link } from 'react-router-dom';
+import PopularCourses from '../../../components/PopularCourses';
 
 export default function DscHome() {
   return (
     <main>
       <section className="dsc-hero">
         <div className="dsc-hero-content">
-          <h1>Learn Data Science Your Way</h1>
-          <p>Master data science concepts with structured, easy-to-follow resources</p>
+          <h1>Learn <span>Data Science</span> Your Way</h1>
+          <p>Master analytics, Python libraries, statistics, visualization, and ML-ready data with a polished roadmap built for real practice.</p>
+          <div className="dsc-hero-stats" aria-label="Course highlights">
+            <div>
+              <strong>10</strong>
+              <small>Modules</small>
+            </div>
+            <div>
+              <strong>30+</strong>
+              <small>Lessons</small>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <small>Practical</small>
+            </div>
+          </div>
           <Link to="/dsc-course/topics" className="dsc-cta-button">Explore Topics</Link>
         </div>
         <div className="dsc-hero-image">
@@ -14,6 +29,10 @@ export default function DscHome() {
             src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Data Science Visualization"
           />
+          <div className="dsc-hero-insight">
+            <span>Live roadmap</span>
+            <strong>From raw data to decisions</strong>
+          </div>
         </div>
       </section>
 
@@ -78,6 +97,8 @@ export default function DscHome() {
           <Link to="/dsc-course/topics" className="dsc-view-all-link">View All Topics</Link>
         </div>
       </section>
+
+      <PopularCourses />
     </main>
   );
 }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import JsIntNavbar, { useDarkMode } from '../components/JsIntNavbar'
 import JsIntFooter from '../components/JsIntFooter'
 import { jsIntData, getAllTopics } from '../data/jsIntData'
+import PopularCourses from '../../../components/PopularCourses'
 import '../styles/JsIntHome.css'
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -390,61 +391,9 @@ export default function JsIntHome() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════════
-            TOPICS OVERVIEW GRID
+            POPULAR COURSES
         ══════════════════════════════════════════════════════════════ */}
-        <section
-          className="home-topics-section"
-          id="topics"
-          aria-labelledby="home-topics-heading"
-        >
-          <div className="home-section-inner">
-
-            <div className="home-section-header">
-              <div className="home-section-pill">
-                <i className="bi bi-collection-fill" aria-hidden="true" />
-                11 Categories
-              </div>
-              <h2
-                className="home-section-title--centered"
-                id="home-topics-heading"
-              >
-                Explore All Topic Categories
-              </h2>
-              <p className="home-section-desc">
-                From advanced data types to the Fetch API — every intermediate
-                JavaScript concept, organized and instantly accessible.
-              </p>
-            </div>
-
-            <div className="home-topics-grid">
-              {categories.map((cat, i) => (
-                <Link
-                  key={cat.name}
-                  to={`/js-int/${cat.tags[0].name}`}
-                  className="home-topic-card"
-                  style={{ animationDelay: `${i * 0.06}s` }}
-                  aria-label={`${cat.name} — ${cat.tags.length} topics`}
-                >
-                  <div className="home-topic-icon" aria-hidden="true">
-                    <i className={cat.icon} />
-                  </div>
-                  <div className="home-topic-meta">
-                    <span className="home-topic-count">
-                      {cat.tags.length}
-                      {' '}
-                      {cat.tags.length === 1 ? 'topic' : 'topics'}
-                    </span>
-                  </div>
-                  <h3 className="home-topic-name">{cat.name}</h3>
-                  <p className="home-topic-desc">{cat.description}</p>
-                  <span className="home-topic-cta" aria-hidden="true">
-                    Explore <i className="bi bi-arrow-right-short" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PopularCourses />
 
         {/* ══════════════════════════════════════════════════════════════
             WHY JS INTERMEDIATE?

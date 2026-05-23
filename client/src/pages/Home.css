@@ -583,15 +583,18 @@
   opacity: 0.8;
 }
 
-.about-text h2 {
-  text-align: left;
-  margin-bottom: 1.5rem;
+.about-section-heading {
+  text-align: center;
+  font-size: 2.8rem;
   font-weight: 900 !important;
+  color: var(--primary, #3b82f6);
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .about-text p {
   margin-bottom: 1rem;
-  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -605,8 +608,8 @@
     text-align: center;
   }
 
-  .about-text h2 {
-    text-align: center;
+  .about-section-heading {
+    font-size: 2rem;
   }
 
   .about-image i {

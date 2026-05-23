@@ -1,0 +1,87 @@
+/* ═══════════════════════════════════════════════════════════════════
+   JsFooter.css — JS Basic In My Style
+   Responsive overrides for the footer grid (inline styles handle
+   colors/typography; this file handles layout breakpoints only).
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Grid container ─────────────────────────────────────────────── */
+.js-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(247, 223, 30, 0.10);
+}
+
+/* ── Bottom bar ─────────────────────────────────────────────────── */
+.js-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+/* ── Tablet: 2 columns, brand full width, contact full width ─────── */
+@media (max-width: 1100px) {
+  .js-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2rem;
+  }
+
+  /* Brand column spans full width */
+  .js-footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Contact column spans full width */
+  .js-footer-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Mobile: 1 column, all stacked ──────────────────────────────── */
+@media (max-width: 768px) {
+  .js-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .js-footer-grid > div:first-child,
+  .js-footer-grid > div:last-child {
+    grid-column: 1 / 1;
+  }
+
+  .js-footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.85rem;
+    padding: 1.25rem 0;
+  }
+
+  .js-footer-bottom > p {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .js-footer-bottom > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .js-footer-bottom > div > button {
+    width: 100% !important;
+    justify-content: center;
+  }
+}
+
+/* ── Small phones ────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .js-footer-grid {
+    gap: 1.75rem;
+  }
+}

@@ -1,0 +1,23 @@
+// Shared course links used across all footer components
+export const ALL_COURSES = [
+  { label: 'HTML IN MY STYLE',                href: '/html-course' },
+  { label: 'CSS IN MY STYLE',                 href: '/css-course' },
+  { label: 'JAVASCRIPT BASIC IN MY STYLE',    href: '/js-basic-course' },
+  { label: 'JAVASCRIPT INT IN MY STYLE',      href: '/js-int-course' },
+  { label: 'JAVASCRIPT ADV IN MY STYLE',      href: '/js-adv-course' },
+  { label: 'C IN MY STYLE',                   href: '/c-course' },
+  { label: 'JAVA IN MY STYLE',                href: '/java-course' },
+  { label: 'PYTHON IN MY STYLE',              href: '/python-course' },
+  { label: 'AI IN MY STYLE',                  href: '/ai-course' },
+  { label: 'MACHINE LEARNING IN MY STYLE',    href: '/ml-course' },
+  { label: 'DEEP LEARNING IN MY STYLE',       href: '/dl-course' },
+  { label: 'NLP IN MY STYLE',                 href: '/nlp-course' },
+  { label: 'GEN AI IN MY STYLE',              href: '/genai-course' },
+  { label: 'DATA SCIENCE IN MY STYLE',        href: '/dsc-course' },
+  { label: 'DSA IN MY STYLE',                 href: '/dsa-course' },
+  { label: 'DATABASE IN MY STYLE',            href: '/database-course' },
+  { label: 'OS IN MY STYLE',                  href: '/os-course' },
+  { label: 'SYSTEM DESIGN IN MY STYLE',       href: '/system-design-course' },
+  { label: 'FULL STACK PYTHON IN MY STYLE',   href: '/fullstack-python-course' },
+  { label: 'FULL STACK JAVA IN MY STYLE',     href: '/fullstack-java-platform-course' },
+];
