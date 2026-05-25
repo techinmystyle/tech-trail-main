@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
@@ -9,6 +11,36 @@ const authRoutes = require('./routes/authRoutes');
 dotenv.config();
 
 const app = express();
+
+// ── Security: HTTP headers (helmet) ──────────────────────────────
+app.use(helmet({
+  contentSecurityPolicy: false, // disabled to allow CDN fonts/icons/AOS
+  crossOriginEmbedderPolicy: false,
+}));
+
+// ── Security: Rate limiting ────────────────────────────────────────
+// General API limiter
+const generalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 200,
+  message: { error: 'Too many requests. Please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Strict limiter for auth routes (prevent brute force)
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: { error: 'Too many login attempts. Please try again in 15 minutes.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use('/api/', generalLimiter);
+app.use('/api/auth/login',    authLimiter);
+app.use('/api/auth/register', authLimiter);
+
 
 // Middleware
 const allowedOrigins = [

@@ -4,10 +4,24 @@
   "description": "Free programming and technology courses including HTML, CSS, JavaScript, Python, Java, AI, ML, Deep Learning, NLP, Data Science, DSA, System Design, and Full Stack Development.",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon-16x16.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "16x16"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
     },
     {
       "src": "logo192.png",
@@ -22,9 +36,9 @@
       "purpose": "any maskable"
     },
     {
-      "src": "apple-touch-icon.png",
-      "type": "image/png",
-      "sizes": "180x180",
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
       "purpose": "any maskable"
     }
   ],
@@ -35,5 +49,6 @@
   "theme_color": "#2196F3",
   "background_color": "#0a0a1a",
   "categories": ["education", "productivity"],
-  "lang": "en-IN"
+  "lang": "en-IN",
+  "dir": "ltr"
 }

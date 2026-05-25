@@ -33,13 +33,21 @@
   <meta name="twitter:description" content="Free courses in HTML, CSS, JavaScript, Python, Java, AI, ML, Deep Learning, NLP, Data Science & Full Stack. Learn to code the smart way." />
   <meta name="twitter:image"       content="https://techinmystyle.com/favicon.png" />
 
-  <!-- ── Favicons & Icons ── -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-  <link rel="shortcut icon" href="/favicon.png" />
+  <!-- ── Favicons & Icons (multi-size for all devices) ── -->
+  <!-- SVG favicon — modern browsers (scalable, crisp at any size) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- PNG fallbacks for older browsers -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <!-- ICO fallback for very old browsers & Windows shortcuts -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!-- Apple devices: iPhone/iPad bookmark & home screen -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="msapplication-TileImage" content="/favicon.png" />
+  <!-- Windows tiles (Edge, pinned sites) -->
+  <meta name="msapplication-TileImage" content="/favicon-96x96.png" />
   <meta name="msapplication-TileColor" content="#2196F3" />
+  <!-- PWA manifest -->
   <link rel="manifest" href="/manifest.json" />
 
   <!-- ── Fonts ── -->
