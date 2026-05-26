@@ -71,7 +71,9 @@ const corsOptions = {
       allowedOrigins.includes(origin) ||
       origin.endsWith('.vercel.app') ||
       origin.endsWith('.onrender.com') ||
-      origin.endsWith('.netlify.app')
+      origin.endsWith('.netlify.app') ||
+      origin === 'https://techinmystyle.com' ||
+      origin === 'https://www.techinmystyle.com'
     ) {
       callback(null, true);
     } else {
