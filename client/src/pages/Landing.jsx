@@ -3,49 +3,54 @@ import { Link, Navigate } from 'react-router-dom';
 import AOS from 'aos';
 import './Landing.css';
 
+/* ── Logo colours extracted from favicon.png ──
+   Electric Blue  : #29ABE2
+   Vivid Purple   : #9B59E8
+   Dark Navy      : #1B3A5C
+   Light Sky Blue : #87CEEB
+─────────────────────────────────────────── */
+
 const courses = [
-  { icon: 'fab fa-html5',           name: 'HTML',                  desc: 'Build the structure of the web',            link: '/html-course',                 color: '#e44d26', bg: '#2a1200' },
-  { icon: 'fab fa-css3-alt',        name: 'CSS',                   desc: 'Style & design beautiful interfaces',       link: '/css-course',                  color: '#264de4', bg: '#050e2d' },
-  { icon: 'fab fa-js-square',       name: 'JavaScript',            desc: 'Bring interactivity to your pages',         link: '/js-basic-course',             color: '#f7df1e', bg: '#1f1a00' },
-  { icon: 'fab fa-python',          name: 'Python',                desc: 'Versatile language for every domain',       link: '/python-course',               color: '#4b8bbe', bg: '#001020' },
-  { icon: 'fab fa-java',            name: 'Java',                  desc: 'Power of OOP & enterprise dev',             link: '/java-course',                 color: '#f89820', bg: '#1f0e00' },
-  { icon: 'fas fa-code',            name: 'C Programming',         desc: 'Master the foundation of computing',        link: '/c-course',                    color: '#a8b9cc', bg: '#0f1218' },
-  { icon: 'fas fa-brain',           name: 'Machine Learning',      desc: 'Build models that learn from data',         link: '/ml-course',                   color: '#a855f7', bg: '#1a0a2e' },
-  { icon: 'fas fa-robot',           name: 'Artificial Intelligence', desc: 'Create thinking machines',               link: '/ai-course',                   color: '#06b6d4', bg: '#001a1f' },
-  { icon: 'fas fa-network-wired',   name: 'Deep Learning',         desc: 'Neural networks & advanced AI',            link: '/dl-course',                   color: '#ef4444', bg: '#1f0404' },
-  { icon: 'fas fa-language',        name: 'NLP',                   desc: 'Teach machines to understand language',    link: '/nlp-course',                  color: '#22c55e', bg: '#001808' },
-  { icon: 'fas fa-magic',           name: 'Generative AI',         desc: 'Build AI that creates content',            link: '/genai-course',                color: '#f59e0b', bg: '#1f1000' },
-  { icon: 'fas fa-chart-line',      name: 'Data Science',          desc: 'Turn raw data into insights',              link: '/dsc-course',                  color: '#10b981', bg: '#001a10' },
-  { icon: 'fas fa-project-diagram', name: 'DSA',                   desc: 'Master algorithms & data structures',      link: '/dsa-course',                  color: '#f59e0b', bg: '#1f1000' },
-  { icon: 'fas fa-database',        name: 'Database',              desc: 'SQL, NoSQL & database design',             link: '/database-course',             color: '#6366f1', bg: '#0d0d2e' },
-  { icon: 'fas fa-desktop',         name: 'Operating Systems',     desc: 'How computers really work',                link: '/os-course',                   color: '#94a3b8', bg: '#0f1218' },
-  { icon: 'fas fa-sitemap',         name: 'System Design',         desc: 'Architect scalable systems',               link: '/system-design-course',        color: '#8b5cf6', bg: '#130d1f' },
-  { icon: 'fas fa-layer-group',     name: 'Full Stack Python',     desc: 'End-to-end Python web apps',               link: '/fullstack-python-course',     color: '#0ea5e9', bg: '#001420' },
-  { icon: 'fas fa-layer-group',     name: 'Full Stack Java',       desc: 'End-to-end Java web apps',                link: '/fullstack-java-platform-course', color: '#f89820', bg: '#1f0e00' },
+  { icon: 'fab fa-html5',           name: 'HTML',                  desc: 'Build the structure of the web',             link: '/html-course',                   color: '#e44d26' },
+  { icon: 'fab fa-css3-alt',        name: 'CSS',                   desc: 'Style beautiful, modern interfaces',          link: '/css-course',                    color: '#29ABE2' },
+  { icon: 'fab fa-js-square',       name: 'JavaScript',            desc: 'Bring interactivity to your pages',           link: '/js-basic-course',               color: '#f7df1e' },
+  { icon: 'fab fa-python',          name: 'Python',                desc: 'Versatile language for every domain',         link: '/python-course',                 color: '#29ABE2' },
+  { icon: 'fab fa-java',            name: 'Java',                  desc: 'Power of OOP & enterprise development',       link: '/java-course',                   color: '#f89820' },
+  { icon: 'fas fa-code',            name: 'C Programming',         desc: 'Master the foundation of computing',          link: '/c-course',                      color: '#9B59E8' },
+  { icon: 'fas fa-brain',           name: 'Machine Learning',      desc: 'Build models that learn from data',           link: '/ml-course',                     color: '#9B59E8' },
+  { icon: 'fas fa-robot',           name: 'Artificial Intelligence', desc: 'Create intelligent thinking machines',      link: '/ai-course',                     color: '#29ABE2' },
+  { icon: 'fas fa-network-wired',   name: 'Deep Learning',         desc: 'Neural networks & advanced AI systems',       link: '/dl-course',                     color: '#9B59E8' },
+  { icon: 'fas fa-language',        name: 'NLP',                   desc: 'Teach machines to understand language',       link: '/nlp-course',                    color: '#29ABE2' },
+  { icon: 'fas fa-magic',           name: 'Generative AI',         desc: 'Build AI that creates amazing content',       link: '/genai-course',                  color: '#9B59E8' },
+  { icon: 'fas fa-chart-line',      name: 'Data Science',          desc: 'Turn raw data into powerful insights',        link: '/dsc-course',                    color: '#29ABE2' },
+  { icon: 'fas fa-project-diagram', name: 'DSA',                   desc: 'Master algorithms & data structures',         link: '/dsa-course',                    color: '#9B59E8' },
+  { icon: 'fas fa-database',        name: 'Database',              desc: 'SQL, NoSQL & smart database design',          link: '/database-course',               color: '#29ABE2' },
+  { icon: 'fas fa-desktop',         name: 'Operating Systems',     desc: 'Understand how computers really work',        link: '/os-course',                     color: '#9B59E8' },
+  { icon: 'fas fa-sitemap',         name: 'System Design',         desc: 'Architect scalable reliable systems',         link: '/system-design-course',          color: '#29ABE2' },
+  { icon: 'fas fa-layer-group',     name: 'Full Stack Python',     desc: 'End-to-end web apps with Python',             link: '/fullstack-python-course',       color: '#9B59E8' },
+  { icon: 'fas fa-layer-group',     name: 'Full Stack Java',       desc: 'End-to-end web apps with Java',               link: '/fullstack-java-platform-course', color: '#29ABE2' },
 ];
 
 const stats = [
-  { value: '18+',  label: 'Free Courses',   icon: 'fas fa-book-open' },
-  { value: '500+', label: 'Lessons',        icon: 'fas fa-play-circle' },
-  { value: '10K+', label: 'Learners',       icon: 'fas fa-users' },
-  { value: '100%', label: 'Free Forever',   icon: 'fas fa-infinity' },
+  { value: '18+',  label: 'Free Courses',  icon: 'fas fa-book-open'   },
+  { value: '500+', label: 'Lessons',       icon: 'fas fa-play-circle' },
+  { value: '10K+', label: 'Learners',      icon: 'fas fa-users'       },
+  { value: '100%', label: 'Free Forever',  icon: 'fas fa-infinity'    },
 ];
 
 const features = [
-  { icon: 'fas fa-infinity',        title: '100% Free Forever',     desc: 'All courses, all content — completely free. No credit card, no hidden fees, no paywalls.' },
-  { icon: 'fas fa-graduation-cap',  title: 'Beginner Friendly',     desc: 'Every course starts from zero. No prior experience needed to begin your tech journey.' },
-  { icon: 'fas fa-code',            title: 'Hands-on Projects',     desc: 'Learn by doing with real-world projects and live code examples in every lesson.' },
-  { icon: 'fas fa-mobile-alt',      title: 'Learn Anywhere',        desc: 'Fully responsive platform. Learn on your phone, tablet, or desktop — anytime.' },
-  { icon: 'fas fa-language',        title: 'Telugu & English',      desc: 'Content crafted in both Telugu and English for regional learners across India.' },
-  { icon: 'fas fa-sync-alt',        title: 'Always Updated',        desc: 'Content is regularly refreshed with the latest industry tools and technologies.' },
+  { icon: 'fas fa-infinity',       title: '100% Free Forever',    desc: 'All courses, all content — no credit card, no hidden fees, no paywalls. Ever.' },
+  { icon: 'fas fa-graduation-cap', title: 'Beginner Friendly',    desc: 'Every course starts from absolute zero. No prior experience needed at all.' },
+  { icon: 'fas fa-code',           title: 'Hands-on Projects',    desc: 'Learn by doing — real-world projects and live code examples in every lesson.' },
+  { icon: 'fas fa-mobile-alt',     title: 'Learn Anywhere',       desc: 'Fully responsive. Learn on phone, tablet or desktop — anytime, anywhere.' },
+  { icon: 'fas fa-language',       title: 'Telugu & English',     desc: 'Content crafted in both Telugu and English for regional learners across India.' },
+  { icon: 'fas fa-sync-alt',       title: 'Always Updated',       desc: 'Regularly refreshed with the latest industry tools, frameworks and trends.' },
 ];
 
-
-
-const Landing = () => {
+export default function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // If already logged in → skip landing, go straight to dashboard
+  // Logged-in users skip landing → go to dashboard
   const token = localStorage.getItem('token');
   if (token) return <Navigate to="/home" replace />;
 
@@ -54,102 +59,124 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="lp-root">
+    <div className="lp">
 
-      {/* ════ NAV ════ */}
-      <nav className="lp-nav">
-        <div className="lp-nav-inner">
-          <Link to="/" className="lp-brand">
-            <img src="/favicon.png" alt="Tech In My Style" className="lp-brand-img" />
+      {/* ══════════ NAV ══════════ */}
+      <header className="lp-nav">
+        <div className="lp-nav-wrap">
+
+          <Link to="/" className="lp-logo">
+            <img src="/favicon.png" alt="Tech In My Style" />
             <span>TECH IN MY STYLE</span>
           </Link>
 
-          {/* Desktop nav links */}
-          <div className="lp-nav-links">
-            <a href="#courses"  className="lp-nav-link">Courses</a>
-            <a href="#features" className="lp-nav-link">Features</a>
+          <nav className="lp-nav-links" aria-label="Main navigation">
+            <a href="#courses">Courses</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <div className="lp-nav-cta">
+            <Link to="/login" className="btn-ghost">Login</Link>
+            <Link to="/register" className="btn-primary">Get Started Free</Link>
           </div>
 
-          <div className="lp-nav-actions">
-            <Link to="/login"    className="lp-btn-ghost">Login</Link>
-            <Link to="/register" className="lp-btn-primary">Get Started Free</Link>
-          </div>
-
-          {/* Hamburger */}
-          <button className="lp-hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-            <span className={menuOpen ? 'open' : ''} />
-            <span className={menuOpen ? 'open' : ''} />
-            <span className={menuOpen ? 'open' : ''} />
+          <button
+            className={`lp-burger${menuOpen ? ' open' : ''}`}
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label="Toggle menu"
+          >
+            <span /><span /><span />
           </button>
         </div>
 
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="lp-mobile-menu">
-            <a href="#courses"  onClick={() => setMenuOpen(false)}>Courses</a>
-            <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
-            <Link to="/login"    onClick={() => setMenuOpen(false)} className="lp-btn-ghost w-full">Login</Link>
-            <Link to="/register" onClick={() => setMenuOpen(false)} className="lp-btn-primary w-full">Get Started Free</Link>
+        {/* Mobile slide-down menu */}
+        <div className={`lp-mob-menu${menuOpen ? ' active' : ''}`}>
+          <a href="#courses"  onClick={() => setMenuOpen(false)}>Courses</a>
+          <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
+          <a href="#contact"  onClick={() => setMenuOpen(false)}>Contact</a>
+          <div className="mob-btns">
+            <Link to="/login"    className="btn-ghost full" onClick={() => setMenuOpen(false)}>Login</Link>
+            <Link to="/register" className="btn-primary full" onClick={() => setMenuOpen(false)}>Get Started Free</Link>
           </div>
-        )}
-      </nav>
+        </div>
+      </header>
 
-      {/* ════ HERO ════ */}
+      {/* ══════════ HERO ══════════ */}
       <section className="lp-hero">
-        {/* Animated background orbs */}
-        <div className="lp-orb lp-orb-1" />
-        <div className="lp-orb lp-orb-2" />
-        <div className="lp-orb lp-orb-3" />
+        {/* Floating orbs */}
+        <div className="orb orb-blue" />
+        <div className="orb orb-purple" />
+        <div className="orb orb-navy" />
+
+        {/* Animated grid lines */}
+        <div className="hero-grid" aria-hidden="true" />
 
         {/* Floating tech pills */}
-        <div className="lp-float-pills" aria-hidden="true">
-          <span className="pill" style={{ '--d': '0s',   top: '18%', left: '6%'  }}><i className="fab fa-html5"   style={{color:'#e44d26'}}/> HTML</span>
-          <span className="pill" style={{ '--d': '0.5s', top: '30%', left: '3%'  }}><i className="fab fa-python"  style={{color:'#4b8bbe'}}/> Python</span>
-          <span className="pill" style={{ '--d': '1s',   top: '55%', left: '5%'  }}><i className="fas fa-brain"   style={{color:'#a855f7'}}/> ML</span>
-          <span className="pill" style={{ '--d': '1.5s', top: '70%', left: '8%'  }}><i className="fab fa-js"      style={{color:'#f7df1e'}}/> JS</span>
-          <span className="pill" style={{ '--d': '0.3s', top: '18%', right: '6%' }}><i className="fab fa-java"    style={{color:'#f89820'}}/> Java</span>
-          <span className="pill" style={{ '--d': '0.8s', top: '35%', right: '3%' }}><i className="fas fa-robot"   style={{color:'#06b6d4'}}/> AI</span>
-          <span className="pill" style={{ '--d': '1.3s', top: '58%', right: '5%' }}><i className="fas fa-chart-line" style={{color:'#10b981'}}/> Data</span>
-          <span className="pill" style={{ '--d': '1.8s', top: '72%', right: '8%' }}><i className="fab fa-css3-alt"style={{color:'#264de4'}}/> CSS</span>
+        <div className="float-pills" aria-hidden="true">
+          {[
+            { icon: 'fab fa-html5',  label: 'HTML',   color: '#e44d26', d: '0s',   t: '20%', l: '4%'  },
+            { icon: 'fab fa-python', label: 'Python', color: '#29ABE2', d: '0.6s', t: '38%', l: '2%'  },
+            { icon: 'fas fa-brain',  label: 'ML',     color: '#9B59E8', d: '1.2s', t: '58%', l: '4%'  },
+            { icon: 'fab fa-js',     label: 'JS',     color: '#f7df1e', d: '1.8s', t: '74%', l: '6%'  },
+            { icon: 'fab fa-java',   label: 'Java',   color: '#f89820', d: '0.3s', t: '20%', r: '4%'  },
+            { icon: 'fas fa-robot',  label: 'AI',     color: '#29ABE2', d: '0.9s', t: '38%', r: '2%'  },
+            { icon: 'fas fa-chart-line', label: 'Data', color: '#9B59E8', d: '1.5s', t: '58%', r: '4%' },
+            { icon: 'fab fa-css3-alt',   label: 'CSS', color: '#29ABE2', d: '2.1s', t: '74%', r: '6%' },
+          ].map((p, i) => (
+            <span
+              key={i}
+              className="fp"
+              style={{
+                '--d': p.d,
+                top: p.t,
+                ...(p.l ? { left: p.l } : { right: p.r }),
+              }}
+            >
+              <i className={p.icon} style={{ color: p.color }} /> {p.label}
+            </span>
+          ))}
         </div>
 
+        {/* Hero content */}
         <div className="lp-hero-inner" data-aos="fade-up">
-          <div className="lp-badge">
-            <span className="badge-dot" /> Free Learning Platform &nbsp;·&nbsp; 18+ Courses
+          <div className="hero-badge">
+            <span className="badge-pulse" />
+            🤖 &nbsp;Free Learning Platform &nbsp;·&nbsp; 18+ Courses
           </div>
 
-          <h1 className="lp-hero-h1">
-            Learn <span className="lp-grad">Programming</span><br />
-            &amp; <span className="lp-grad">Technology</span><br className="lp-br-mobile"/>
-            <span className="lp-hero-sub-title"> the Smart Way</span>
+          <h1>
+            Learn <span className="grad-blue">Programming</span><br />
+            &amp; <span className="grad-purple">Technology</span>
+            <span className="hero-tagline"> the Smart Way</span>
           </h1>
 
-          <p className="lp-hero-p">
+          <p className="hero-desc">
             Master HTML, CSS, JavaScript, Python, Java, AI, Machine Learning,
-            Data Science, DSA, System Design &amp; Full Stack — all in one place, <strong>completely free</strong>.
+            Data Science, DSA, System Design &amp; Full Stack —
+            all in one place, <strong>completely free</strong>.
           </p>
 
-          <div className="lp-hero-cta">
-            <Link to="/register" className="lp-btn-primary lp-btn-lg">
+          <div className="hero-btns">
+            <Link to="/register" className="btn-primary btn-lg">
               Start Learning Free &nbsp;<i className="fas fa-arrow-right" />
             </Link>
-            <Link to="/login" className="lp-btn-outline lp-btn-lg">
+            <Link to="/login" className="btn-outline btn-lg">
               <i className="fas fa-sign-in-alt" />&nbsp; Login
             </Link>
           </div>
 
-          {/* Trust badges */}
-          <div className="lp-trust">
+          <div className="hero-trust">
             <span><i className="fas fa-check-circle" /> No credit card</span>
             <span><i className="fas fa-check-circle" /> No signup fees</span>
-            <span><i className="fas fa-check-circle" /> Cancel anytime</span>
+            <span><i className="fas fa-check-circle" /> Always free</span>
           </div>
         </div>
 
         {/* Stats */}
-        <div className="lp-stats" data-aos="fade-up" data-aos-delay="150">
+        <div className="lp-stats" data-aos="fade-up" data-aos-delay="180">
           {stats.map((s, i) => (
-            <div className="lp-stat" key={i}>
+            <div className="stat" key={i}>
               <i className={s.icon} />
               <strong>{s.value}</strong>
               <span>{s.label}</span>
@@ -158,33 +185,34 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* ════ COURSES ════ */}
+      {/* ══════════ COURSES ══════════ */}
       <section className="lp-section" id="courses">
-        <div className="lp-container">
-          <div className="lp-section-head" data-aos="fade-up">
-            <span className="lp-eyebrow">Our Curriculum</span>
-            <h2>Explore <span className="lp-grad">18+ Free Courses</span></h2>
-            <p>From beginner to expert — every course is handcrafted and completely free</p>
+        <div className="wrap">
+          <div className="sec-head" data-aos="fade-up">
+            <span className="eyebrow">Our Curriculum</span>
+            <h2>Explore <span className="grad-blue">18+ Free Courses</span></h2>
+            <p>From beginner to expert — every course is handcrafted and 100% free</p>
           </div>
 
-          <div className="lp-courses-grid">
+          <div className="courses-grid">
             {courses.map((c, i) => (
               <Link
                 to={c.link}
-                className="lp-course-card"
+                className="course-card"
                 key={i}
-                style={{ '--ac': c.color, '--bg': c.bg }}
+                style={{ '--ac': c.color }}
                 data-aos="fade-up"
                 data-aos-delay={Math.min((i % 4) * 60, 200)}
               >
-                <div className="lp-cc-icon">
+                <div className="cc-glow" />
+                <div className="cc-icon">
                   <i className={c.icon} style={{ color: c.color }} />
                 </div>
-                <div className="lp-cc-body">
+                <div className="cc-body">
                   <h3>{c.name}</h3>
                   <p>{c.desc}</p>
                 </div>
-                <div className="lp-cc-arrow">
+                <div className="cc-arrow">
                   <i className="fas fa-chevron-right" />
                 </div>
               </Link>
@@ -193,19 +221,21 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* ════ FEATURES ════ */}
-      <section className="lp-section lp-section-alt" id="features">
-        <div className="lp-container">
-          <div className="lp-section-head" data-aos="fade-up">
-            <span className="lp-eyebrow">Why Choose Us</span>
-            <h2>Everything You Need to <span className="lp-grad">Succeed</span></h2>
-            <p>Built for learners, by learners — we know what it takes to grow</p>
+      {/* ══════════ FEATURES ══════════ */}
+      <section className="lp-section lp-alt" id="features">
+        <div className="wrap">
+          <div className="sec-head" data-aos="fade-up">
+            <span className="eyebrow">Why Choose Us</span>
+            <h2>Everything You Need to <span className="grad-purple">Succeed</span></h2>
+            <p>Built for learners, by learners — we know what it takes to grow in tech</p>
           </div>
 
-          <div className="lp-features-grid">
+          <div className="feat-grid">
             {features.map((f, i) => (
-              <div className="lp-feature-card" key={i} data-aos="fade-up" data-aos-delay={i * 70}>
-                <div className="lp-feat-icon"><i className={f.icon} /></div>
+              <div className="feat-card" key={i} data-aos="fade-up" data-aos-delay={i * 70}>
+                <div className="feat-icon">
+                  <i className={f.icon} />
+                </div>
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
               </div>
@@ -214,61 +244,65 @@ const Landing = () => {
         </div>
       </section>
 
-
-
-      {/* ════ CTA ════ */}
-      <section className="lp-cta-section" data-aos="zoom-in">
-        <div className="lp-cta-orb lp-cta-orb-1" />
-        <div className="lp-cta-orb lp-cta-orb-2" />
-        <div className="lp-container lp-cta-inner">
-          <h2>Ready to Start Your <span className="lp-grad">Tech Journey?</span></h2>
-          <p>Join 10,000+ learners who are already building their future with Tech In My Style</p>
-          <div className="lp-cta-btns">
-            <Link to="/register" className="lp-btn-primary lp-btn-lg">
-              Create Free Account &nbsp;<i className="fas fa-rocket" />
-            </Link>
-            <Link to="/login" className="lp-btn-ghost lp-btn-lg">
-              Already have an account
-            </Link>
+      {/* ══════════ CTA BANNER ══════════ */}
+      <section className="lp-cta" data-aos="zoom-in">
+        <div className="cta-orb cta-orb-1" />
+        <div className="cta-orb cta-orb-2" />
+        <div className="wrap cta-inner">
+          <div className="cta-robot">
+            <img src="/favicon.png" alt="Tech In My Style Robot" />
+          </div>
+          <div className="cta-text">
+            <h2>Ready to Start Your <span className="grad-blue">Tech Journey?</span></h2>
+            <p>Join 10,000+ learners who are already building their future with Tech In My Style</p>
+            <div className="cta-btns">
+              <Link to="/register" className="btn-primary btn-lg">
+                Create Free Account &nbsp;<i className="fas fa-rocket" />
+              </Link>
+              <Link to="/login" className="btn-ghost btn-lg">
+                I already have an account
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ════ FOOTER ════ */}
-      <footer className="lp-footer">
-        <div className="lp-container">
-          <div className="lp-footer-top">
-            <div className="lp-footer-brand">
-              <Link to="/" className="lp-brand">
-                <img src="/favicon.png" alt="Tech In My Style" className="lp-brand-img" />
+      {/* ══════════ FOOTER ══════════ */}
+      <footer className="lp-footer" id="contact">
+        <div className="wrap">
+          <div className="footer-top">
+
+            <div className="footer-brand">
+              <Link to="/" className="lp-logo">
+                <img src="/favicon.png" alt="Tech In My Style" />
                 <span>TECH IN MY STYLE</span>
               </Link>
               <p>Empowering the next generation of developers with free, world-class tech education.</p>
-              <div className="lp-social">
-                <a href="https://www.youtube.com/@TECHINMYSTYLE"     target="_blank" rel="noopener noreferrer" title="YouTube"><i className="fab fa-youtube" /></a>
+              <div className="social-row">
+                <a href="https://www.youtube.com/@TECHINMYSTYLE"     target="_blank" rel="noopener noreferrer" title="YouTube"  ><i className="fab fa-youtube"   /></a>
                 <a href="https://www.instagram.com/tech_in_my_style" target="_blank" rel="noopener noreferrer" title="Instagram"><i className="fab fa-instagram" /></a>
-                <a href="https://t.me/Tech_in_my_style_bot"          target="_blank" rel="noopener noreferrer" title="Telegram"><i className="fab fa-telegram" /></a>
-                <a href="https://wa.me/919390119848"                  target="_blank" rel="noopener noreferrer" title="WhatsApp"><i className="fab fa-whatsapp" /></a>
+                <a href="https://t.me/Tech_in_my_style_bot"          target="_blank" rel="noopener noreferrer" title="Telegram" ><i className="fab fa-telegram"  /></a>
+                <a href="https://wa.me/919390119848"                  target="_blank" rel="noopener noreferrer" title="WhatsApp" ><i className="fab fa-whatsapp"  /></a>
               </div>
             </div>
 
-            <div className="lp-footer-cols">
-              <div className="lp-footer-col">
+            <div className="footer-cols">
+              <div className="footer-col">
                 <h4>Quick Links</h4>
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
-                <a href="#courses">Courses</a>
-                <a href="#features">Features</a>
+                <a href="#courses">All Courses</a>
+                <a href="#features">Why Us</a>
               </div>
-              <div className="lp-footer-col">
-                <h4>Courses</h4>
+              <div className="footer-col">
+                <h4>Top Courses</h4>
                 <Link to="/html-course">HTML</Link>
                 <Link to="/python-course">Python</Link>
                 <Link to="/js-basic-course">JavaScript</Link>
                 <Link to="/ml-course">Machine Learning</Link>
                 <Link to="/dsa-course">DSA</Link>
               </div>
-              <div className="lp-footer-col">
+              <div className="footer-col">
                 <h4>Legal</h4>
                 <Link to="/privacy-policy">Privacy Policy</Link>
                 <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
@@ -278,14 +312,12 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="lp-footer-bottom">
+          <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} Tech In My Style. All rights reserved.</p>
-            <p>Made with <i className="fas fa-heart" style={{color:'#ef4444'}}/> in Andhra Pradesh, India</p>
+            <p>Made with <i className="fas fa-heart" style={{ color: '#9B59E8' }} /> in Andhra Pradesh, India</p>
           </div>
         </div>
       </footer>
     </div>
   );
-};
-
-export default Landing;
+}
