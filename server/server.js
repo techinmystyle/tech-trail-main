@@ -70,7 +70,8 @@ const corsOptions = {
     if (
       allowedOrigins.includes(origin) ||
       origin.endsWith('.vercel.app') ||
-      origin.endsWith('.onrender.com')
+      origin.endsWith('.onrender.com') ||
+      origin.endsWith('.netlify.app')
     ) {
       callback(null, true);
     } else {
