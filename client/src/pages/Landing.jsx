@@ -40,11 +40,7 @@ const features = [
   { icon: 'fas fa-sync-alt',        title: 'Always Updated',        desc: 'Content is regularly refreshed with the latest industry tools and technologies.' },
 ];
 
-const testimonials = [
-  { name: 'Rahul K.', role: 'Web Developer', quote: 'I got my first job as a frontend developer after completing the HTML, CSS and JavaScript courses here. Amazing platform!', avatar: 'RK', color: '#818cf8' },
-  { name: 'Priya S.', role: 'Data Scientist', quote: 'The Python and Machine Learning courses are incredibly well structured. I went from zero to landing an internship in 4 months.', avatar: 'PS', color: '#a855f7' },
-  { name: 'Anil M.', role: 'Software Engineer', quote: 'DSA and System Design content here is better than paid platforms. Completely free and high quality — unbelievable!', avatar: 'AM', color: '#06b6d4' },
-];
+
 
 const Landing = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -72,7 +68,6 @@ const Landing = () => {
           <div className="lp-nav-links">
             <a href="#courses"  className="lp-nav-link">Courses</a>
             <a href="#features" className="lp-nav-link">Features</a>
-            <a href="#reviews"  className="lp-nav-link">Reviews</a>
           </div>
 
           <div className="lp-nav-actions">
@@ -93,7 +88,6 @@ const Landing = () => {
           <div className="lp-mobile-menu">
             <a href="#courses"  onClick={() => setMenuOpen(false)}>Courses</a>
             <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
-            <a href="#reviews"  onClick={() => setMenuOpen(false)}>Reviews</a>
             <Link to="/login"    onClick={() => setMenuOpen(false)} className="lp-btn-ghost w-full">Login</Link>
             <Link to="/register" onClick={() => setMenuOpen(false)} className="lp-btn-primary w-full">Get Started Free</Link>
           </div>
@@ -220,31 +214,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* ════ TESTIMONIALS ════ */}
-      <section className="lp-section" id="reviews">
-        <div className="lp-container">
-          <div className="lp-section-head" data-aos="fade-up">
-            <span className="lp-eyebrow">Success Stories</span>
-            <h2>Learners Who <span className="lp-grad">Transformed</span> Their Careers</h2>
-          </div>
 
-          <div className="lp-testimonials-grid">
-            {testimonials.map((t, i) => (
-              <div className="lp-testimonial" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="lp-t-quote"><i className="fas fa-quote-left" /></div>
-                <p className="lp-t-text">"{t.quote}"</p>
-                <div className="lp-t-author">
-                  <div className="lp-t-avatar" style={{ background: t.color }}>{t.avatar}</div>
-                  <div>
-                    <strong>{t.name}</strong>
-                    <span>{t.role}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ════ CTA ════ */}
       <section className="lp-cta-section" data-aos="zoom-in">
