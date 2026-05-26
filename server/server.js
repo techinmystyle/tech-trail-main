@@ -3,9 +3,9 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { createProxyMiddleware } = require('http-proxy-middleware');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const pythonStudioRoutes = require('./routes/pythonStudioRoutes');
 
 // Load env vars
 dotenv.config();
@@ -89,25 +89,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Proxy Python Studio API to FastAPI backend
-const pythonStudioUrl = process.env.PYTHON_STUDIO_URL || 'https://tech-in-my-style-python-studio.onrender.com';
-app.use('/api/python-studio', createProxyMiddleware({
-  target: pythonStudioUrl,
-  changeOrigin: true,
-  pathRewrite: { '^/api/python-studio': '' },
-  proxyTimeout: 120000,  // 2 minutes for Render cold starts
-  timeout: 120000,
-  onProxyReq: (proxyReq, req) => {
-    console.log(`[Proxy] ${req.method} ${req.path} -> ${pythonStudioUrl}${req.path.replace('/api/python-studio', '')}`);
-  },
-  onError: (err, req, res) => {
-    console.error('[Proxy Error]', err.message);
-    res.status(502).json({
-      error: 'Python Studio service unavailable',
-      message: err.message
-    });
-  }
-}));
+// Python Studio — embedded in Express (no separate service needed)
+app.use('/api/python-studio', pythonStudioRoutes);
 
 // Routes
 app.use('/api/auth', authRoutes);
