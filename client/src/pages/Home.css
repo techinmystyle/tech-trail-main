@@ -4,8 +4,20 @@
   cursor: none !important;
 }
 
-.home-page * {
+/* Apply custom cursor to non-interactive elements only */
+.home-page *:not(a):not(button):not(input):not(select):not(textarea):not(label):not([role="button"]) {
   cursor: none !important;
+}
+
+/* Restore normal cursor on interactive elements */
+.home-page a,
+.home-page button,
+.home-page input,
+.home-page select,
+.home-page textarea,
+.home-page label,
+.home-page [role="button"] {
+  cursor: pointer !important;
 }
 
 /* Hero Section */

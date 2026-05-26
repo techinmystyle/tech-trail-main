@@ -4,8 +4,20 @@
   cursor: none !important;
 }
 
-.courses-page * {
+/* Apply custom cursor to non-interactive elements only */
+.courses-page *:not(a):not(button):not(input):not(select):not(textarea):not(label):not([role="button"]) {
   cursor: none !important;
+}
+
+/* Restore normal cursor on interactive elements */
+.courses-page a,
+.courses-page button,
+.courses-page input,
+.courses-page select,
+.courses-page textarea,
+.courses-page label,
+.courses-page [role="button"] {
+  cursor: pointer !important;
 }
 
 /* Hero Section â€” scoped to courses-page to avoid collision with Home.css */
