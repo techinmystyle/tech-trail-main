@@ -43,6 +43,12 @@ app.use('/api/auth/register', authLimiter);
 
 
 // Middleware
+// Support multiple CLIENT_URLs separated by comma
+const clientUrls = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map(u => u.trim())
+  .filter(Boolean);
+
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
@@ -54,20 +60,32 @@ const allowedOrigins = [
   'http://localhost:59432',
   'http://localhost:8000',
   'http://127.0.0.1:8000',
-  process.env.CLIENT_URL // Production frontend URL from environment variable
-].filter(Boolean); // Remove undefined values
+  ...clientUrls
+].filter(Boolean);
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, curl)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.onrender.com')
+    ) {
       callback(null, true);
     } else {
+      console.warn('[CORS] Blocked origin:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+};
+
+// Handle OPTIONS preflight for all routes FIRST
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -77,14 +95,16 @@ app.use('/api/python-studio', createProxyMiddleware({
   target: pythonStudioUrl,
   changeOrigin: true,
   pathRewrite: { '^/api/python-studio': '' },
-  onProxyReq: (proxyReq, req, res) => {
-    console.log(`[Proxy] ${req.method} ${req.path} -> ${pythonStudioUrl}${req.path}`);
+  proxyTimeout: 120000,  // 2 minutes for Render cold starts
+  timeout: 120000,
+  onProxyReq: (proxyReq, req) => {
+    console.log(`[Proxy] ${req.method} ${req.path} -> ${pythonStudioUrl}${req.path.replace('/api/python-studio', '')}`);
   },
   onError: (err, req, res) => {
     console.error('[Proxy Error]', err.message);
-    res.status(500).json({ 
+    res.status(502).json({
       error: 'Python Studio service unavailable',
-      message: err.message 
+      message: err.message
     });
   }
 }));

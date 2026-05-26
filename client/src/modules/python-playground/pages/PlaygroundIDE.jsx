@@ -8,7 +8,10 @@ import AIAssistant from '../components/AIAssistant'
 import { TEMPLATES } from '../data/templates'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
-const BACKEND = import.meta.env.VITE_PYTHON_STUDIO_URL || `${API_URL}/api/python-studio`
+// In production: point directly to Python Studio to avoid Express proxy timeout (Render free = 30s gateway limit)
+// In local dev:  route through Express proxy (which forwards to localhost:8000)
+const PYTHON_STUDIO_DIRECT = import.meta.env.VITE_PYTHON_STUDIO_URL || null
+const BACKEND = PYTHON_STUDIO_DIRECT || `${API_URL}/api/python-studio`
 
 const DEFAULT_CODE = `# Tech in My Style - AI Python Studio
 # Write your Python code here and click RUN
