@@ -17,7 +17,7 @@ const Login = () => {
     // Check if user is already logged in
     const token = localStorage.getItem('token');
     if (token) {
-      navigate('/home');
+      navigate('/');
     }
 
     return () => {
@@ -49,7 +49,7 @@ const Login = () => {
       localStorage.setItem('userId', response.data._id);
 
       // Redirect to home
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');
     } finally {
