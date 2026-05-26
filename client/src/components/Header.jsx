@@ -92,10 +92,6 @@ const Header = () => {
               <i className="fas fa-comment"></i>
               <span>Feedback Center</span>
             </Link>
-            <Link className={`nav-link ${isActive('/leaderboard')}`} to="/leaderboard" onClick={closeMenu}>
-              <i className="fas fa-trophy"></i>
-              <span>Leaderboard</span>
-            </Link>
             <button 
               className="nav-link" 
               onClick={handleLogout}

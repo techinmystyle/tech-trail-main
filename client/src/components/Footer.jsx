@@ -24,7 +24,6 @@ const Footer = () => {
                 <Link to="/about-us"><i className="fas fa-info-circle"></i> ABOUT US</Link>
                 <Link to="/stay-connected"><i className="fas fa-users"></i> STAY CONNECTED</Link>
                 <Link to="/feedback"><i className="fas fa-comment"></i> FEEDBACK</Link>
-                <Link to="/leaderboard"><i className="fas fa-trophy"></i> LEADERBOARD</Link>
               </div>
               <div className="footer-column">
                 <h4>Web Development</h4>

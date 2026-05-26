@@ -5,7 +5,6 @@ import Courses from '@pages/Courses';
 import AboutUs from '@pages/AboutUs';
 import StayConnected from '@pages/StayConnected';
 import Feedback from '@pages/Feedback';
-import Leaderboard from '@pages/Leaderboard';
 import Login from '@pages/Login';
 import Register from '@pages/Register';
 import ForgotPassword from '@pages/ForgotPassword';
@@ -59,7 +58,6 @@ function App() {
         <Route path="/about-us" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
         <Route path="/stay-connected" element={<ProtectedRoute><StayConnected /></ProtectedRoute>} />
         <Route path="/feedback" element={<ProtectedRoute><Feedback /></ProtectedRoute>} />
-        <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
         
         {/* HTML Course Module Routes */}
         <Route path="/html-course/*" element={<HtmlCourseRoutes />} />

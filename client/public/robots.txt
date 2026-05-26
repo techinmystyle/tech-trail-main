@@ -1,4 +1,4 @@
-﻿# robots.txt — Tech In My Style
+# robots.txt — Tech In My Style
 # https://techinmystyle.com
 
 User-agent: *
@@ -20,6 +20,7 @@ Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password/
+Disallow: /leaderboard
 
 # Sitemap location
 Sitemap: https://techinmystyle.com/sitemap.xml
