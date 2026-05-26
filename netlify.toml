@@ -1,0 +1,29 @@
+[build]
+  base    = "client"
+  command = "npm run build"
+  publish = "build"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/assets/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
