@@ -1,8 +1,11 @@
-.home-page {
+﻿.home-page {
   min-height: 100vh;
   background: transparent;
-  /* Custom cursor is handled by the .custom-cursor div — do NOT set cursor:none here
-     as it breaks all interactive elements like theme toggle, buttons, links */
+  cursor: none !important;
+}
+
+.home-page * {
+  cursor: none !important;
 }
 
 /* Hero Section */
