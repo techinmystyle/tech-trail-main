@@ -72,7 +72,7 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="nav">
           <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-            <Link className={`nav-link ${isActive('/')}`} to="/" onClick={closeMenu}>
+            <Link className={`nav-link ${isActive('/home')}`} to="/home" onClick={closeMenu}>
               <i className="fas fa-home"></i>
               <span>Home</span>
             </Link>

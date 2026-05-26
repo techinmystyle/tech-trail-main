@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '@pages/Home';
+import Landing from '@pages/Landing';
 import Courses from '@pages/Courses';
 import AboutUs from '@pages/AboutUs';
 import StayConnected from '@pages/StayConnected';
@@ -52,8 +53,11 @@ function App() {
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/disclaimer"           element={<Disclaimer />} />
 
+        {/* ── Public Landing — indexable by Google ── */}
+        <Route path="/" element={<Landing />} />
+
         {/* Protected Routes */}
-        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/courses" element={<ProtectedRoute><Courses /></ProtectedRoute>} />
         <Route path="/about-us" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
         <Route path="/stay-connected" element={<ProtectedRoute><StayConnected /></ProtectedRoute>} />

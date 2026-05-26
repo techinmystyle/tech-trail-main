@@ -72,13 +72,20 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <!-- ── Structured Data (JSON-LD) ── -->
+
+  <!-- Organization + Logo (tells Google which image to use as site logo) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Tech In My Style",
     "url": "https://techinmystyle.com",
-    "logo": "https://techinmystyle.com/favicon.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://techinmystyle.com/favicon.png",
+      "width": 512,
+      "height": 512
+    },
     "description": "Tech In My Style offers free programming and technology courses for learners of all levels.",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -97,12 +104,31 @@
       "addressCountry": "IN"
     },
     "offers": [
-      { "@type": "Offer", "name": "HTML Course", "url": "https://techinmystyle.com/html-course", "price": "0", "priceCurrency": "INR" },
-      { "@type": "Offer", "name": "CSS Course",  "url": "https://techinmystyle.com/css-course",  "price": "0", "priceCurrency": "INR" },
-      { "@type": "Offer", "name": "JavaScript Course", "url": "https://techinmystyle.com/js-basic-course", "price": "0", "priceCurrency": "INR" },
-      { "@type": "Offer", "name": "Python Course", "url": "https://techinmystyle.com/python-course", "price": "0", "priceCurrency": "INR" },
-      { "@type": "Offer", "name": "Machine Learning Course", "url": "https://techinmystyle.com/ml-course", "price": "0", "priceCurrency": "INR" }
+      { "@type": "Offer", "name": "HTML Course",              "url": "https://techinmystyle.com/html-course",    "price": "0", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "CSS Course",               "url": "https://techinmystyle.com/css-course",     "price": "0", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "JavaScript Course",        "url": "https://techinmystyle.com/js-basic-course","price": "0", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "Python Course",            "url": "https://techinmystyle.com/python-course",  "price": "0", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "Machine Learning Course",  "url": "https://techinmystyle.com/ml-course",      "price": "0", "priceCurrency": "INR" }
     ]
+  }
+  </script>
+
+  <!-- WebSite schema — enables Google Sitelinks search box -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Tech In My Style",
+    "url": "https://techinmystyle.com",
+    "description": "Free programming courses in HTML, CSS, JavaScript, Python, Java, AI, Machine Learning, Data Science and more.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://techinmystyle.com/courses?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 
