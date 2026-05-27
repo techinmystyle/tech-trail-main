@@ -246,7 +246,7 @@ const forgotPassword = async (req, res) => {
       await user.save();
     }
 
-    const clientUrl = process.env.CLIENT_URL || `${req.headers.origin || 'http://localhost:3000'}`;
+    const clientUrl = (process.env.CLIENT_URL || 'http://localhost:3000').split(',')[0].trim();
     const resetUrl = `${clientUrl}/reset-password/${resetToken}`;
 
     const html = `
