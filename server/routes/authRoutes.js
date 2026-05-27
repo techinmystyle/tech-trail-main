@@ -9,6 +9,7 @@ const {
   resetPassword
 } = require('../controllers/authController');
 const { protect } = require('../middleware/auth');
+const validate = require('../middleware/validate');
 
 // Validation middleware
 const registerValidation = [
@@ -49,10 +50,10 @@ const resetPasswordValidation = [
 ];
 
 // Routes
-router.post('/register', registerValidation, register);
-router.post('/login', loginValidation, login);
+router.post('/register', registerValidation, validate, register);
+router.post('/login', loginValidation, validate, login);
 router.get('/profile', protect, getProfile);
-router.post('/forgot-password', forgotPasswordValidation, forgotPassword);
-router.put('/reset-password/:resetToken', resetPasswordValidation, resetPassword);
+router.post('/forgot-password', forgotPasswordValidation, validate, forgotPassword);
+router.put('/reset-password/:resetToken', resetPasswordValidation, validate, resetPassword);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Auth.css';
 import axios from 'axios';
 
@@ -59,6 +60,11 @@ const Login = () => {
 
   return (
     <div className="auth-page theme-blue">
+      <SEO 
+        title="Login" 
+        description="Login to your Tech In My Style account to access interactive coding playgrounds, tutorials, and roadmap progress tracking."
+        noIndex={true}
+      />
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">

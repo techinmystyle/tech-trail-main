@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WebGLBackground from '../components/WebGLBackground';
+import SEO from '../components/SEO';
 import './Home.css';
 import AOS from 'aos';
 
@@ -75,6 +76,10 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      <SEO 
+        title="Learn Programming & Web Development" 
+        description="Learn coding the smart way with premium, free programming courses in HTML, CSS, JavaScript, Python, Java, AI, ML, Deep Learning, NLP, Data Science, DSA, and Full Stack Development."
+      />
       <WebGLBackground />
       <Header />
 

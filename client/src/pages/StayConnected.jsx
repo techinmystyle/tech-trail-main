@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WebGLBackground from '../components/WebGLBackground';
+import SEO from '../components/SEO';
 import './StayConnected.css';
 import AOS from 'aos';
 
@@ -114,6 +115,10 @@ const StayConnected = () => {
 
   return (
     <div className="stay-connected-page">
+      <SEO 
+        title="Stay Connected & Join Our Community"
+        description="Connect with Tech In My Style on Instagram, YouTube, Twitter/X, Telegram, WhatsApp, and LinkedIn. Stay updated on free programming tutorials, roadmap releases, and student success stories."
+      />
       <WebGLBackground />
       <Header />
       

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Auth.css';
 import axios from 'axios';
 
@@ -100,6 +101,11 @@ const Register = () => {
 
   return (
     <div className="auth-page theme-violet">
+      <SEO 
+        title="Register" 
+        description="Create your free Tech In My Style account to track your study roadmap, complete interactive coding challenges, and earn certifications."
+        noIndex={true}
+      />
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WebGLBackground from '../components/WebGLBackground';
+import SEO from '../components/SEO';
 import './Feedback.css';
 import AOS from 'aos';
 
@@ -59,6 +60,10 @@ const Feedback = () => {
 
   return (
     <div className="feedback-page">
+      <SEO 
+        title="Feedback Center & Bug Reporting"
+        description="Help us improve Tech In My Style by sharing your feedback, reporting bugs, or suggesting course improvements. Your input helps us make quality tech education better for everyone."
+      />
       <WebGLBackground />
       <Header />
       

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WebGLBackground from '../components/WebGLBackground';
+import SEO from '../components/SEO';
 import './Courses.css';
 import AOS from 'aos';
 
@@ -544,6 +545,10 @@ const Courses = () => {
 
   return (
     <div className="courses-page">
+      <SEO 
+        title="Explore Programming & Technology Courses"
+        description="Browse our comprehensive directory of programming courses. We offer top-tier interactive training in HTML, CSS, JavaScript, Python, Java, C, AI, Machine Learning, Deep Learning, NLP, DSA, Operating Systems, Databases, and System Design."
+      />
       <WebGLBackground />
       <Header />
       

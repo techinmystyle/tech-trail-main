@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WebGLBackground from '../components/WebGLBackground';
+import SEO from '../components/SEO';
 import './AboutUs.css';
 import AOS from 'aos';
 
@@ -143,6 +144,10 @@ const AboutUs = () => {
 
   return (
     <div className="about-page">
+      <SEO 
+        title="About Our Team & Mission"
+        description="Meet the passionate educators, technical leads, UI/UX architects, and developers behind Tech In My Style who make technology education accessible to everyone, everywhere."
+      />
       <WebGLBackground />
       <Header />
       

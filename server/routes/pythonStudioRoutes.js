@@ -4,6 +4,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
+const { protect } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -75,7 +76,7 @@ function runCode(code) {
 }
 
 // ── POST /api/python-studio/run ──────────────────────────────────────────────
-router.post('/run', async (req, res) => {
+router.post('/run', protect, async (req, res) => {
   try {
     const code = (req.body.code || '').trim();
     if (!code) return res.status(400).json({ error: 'No code provided.' });
@@ -96,7 +97,7 @@ router.post('/run', async (req, res) => {
 });
 
 // ── POST /api/python-studio/ai-assist ────────────────────────────────────────
-router.post('/ai-assist', (req, res) => {
+router.post('/ai-assist', protect, (req, res) => {
   const { mode, code = '', prompt = '' } = req.body;
   const safeCode = (code || '').slice(0, 3000);
   const lines = safeCode.trim().split('\n');
