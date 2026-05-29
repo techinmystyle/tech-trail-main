@@ -7,8 +7,8 @@ import './CourseFooter.css';
 const SOCIAL_LINKS = [
   { key: 'telegram',  label: 'Telegram',  href: 'https://t.me/Tech_in_my_style_bot',                     icon: 'bi bi-telegram',  cls: 'cf-social-link--telegram'  },
   { key: 'whatsapp',  label: 'WhatsApp',  href: 'https://whatsapp.com/channel/0029VbAZrCD5fM5aOU10Av0d', icon: 'bi bi-whatsapp',  cls: 'cf-social-link--whatsapp'  },
-  { key: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/tech_in_my_style',             icon: 'bi bi-instagram', cls: 'cf-social-link--instagram' },
-  { key: 'youtube',   label: 'YouTube',   href: 'https://www.youtube.com/@TECHINMYSTYLE',                 icon: 'bi bi-youtube',   cls: 'cf-social-link--youtube'   },
+  { key: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/tech_in_my_style?igsh=MWVpb2dzcmhwZ2NicQ==',             icon: 'bi bi-instagram', cls: 'cf-social-link--instagram' },
+  { key: 'youtube',   label: 'YouTube',   href: 'https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw',                 icon: 'bi bi-youtube',   cls: 'cf-social-link--youtube'   },
 ];
 
 /* ── Shared contact items ── */
@@ -24,15 +24,15 @@ const CONTACT_ITEMS = [
     key: 'youtube',
     icon: 'bi bi-youtube',
     label: 'YouTube',
-    value: '@TECHINMYSTYLE',
-    href: 'https://www.youtube.com/@TECHINMYSTYLE',
+    value: '@tech-in-my-style',
+    href: 'https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw',
   },
   {
     key: 'instagram',
     icon: 'bi bi-instagram',
     label: 'Instagram',
-    value: '@techinmystyle',
-    href: 'https://www.instagram.com/tech_in_my_style',
+    value: '@tech_in_my_style',
+    href: 'https://www.instagram.com/tech_in_my_style?igsh=MWVpb2dzcmhwZ2NicQ==',
   },
   {
     key: 'telegram',
@@ -243,7 +243,7 @@ export default function CourseFooter({
       <div className="cf-powered">
         <i className="bi bi-lightning-charge-fill cf-thunder" aria-hidden="true" />
         Powered by&nbsp;
-        <a href="https://www.youtube.com/@TECHINMYSTYLE" target="_blank" rel="noopener noreferrer">
+        <a href="https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw" target="_blank" rel="noopener noreferrer">
           TECH IN MY STYLE
         </a>
         &nbsp;·&nbsp;Made with&nbsp;

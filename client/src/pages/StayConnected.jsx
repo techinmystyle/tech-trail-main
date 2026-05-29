@@ -61,19 +61,19 @@ const StayConnected = () => {
       platform: 'instagram',
       name: 'Instagram',
       icon: 'fab fa-instagram',
-      handle: '@techinmystyle',
+      handle: '@tech_in_my_style',
       description: 'Daily coding tips, behind-the-scenes content, and student success stories',
       recentPost: '"Hit the ❤️ if you like the website"',
-      link: 'https://www.instagram.com/techinmystyle?igsh=YXIxdWl2NGFmdXZk'
+      link: 'https://www.instagram.com/tech_in_my_style?igsh=MWVpb2dzcmhwZ2NicQ=='
     },
     {
       platform: 'youtube',
       name: 'YouTube',
       icon: 'fab fa-youtube',
-      handle: 'Tech In My Style',
+      handle: 'tech-in-my-style',
       description: 'Free tutorials, course previews, and live coding sessions',
       recentPost: '"Smash the 🔔 & ❤️ if you enjoyed the website"',
-      link: 'https://www.youtube.com/@TECHINMYSTYLE'
+      link: 'https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw'
     },
     {
       platform: 'twitter',

@@ -50,9 +50,26 @@ const Home = () => {
   ];
 
   const courses = [
-    { id: 1, name: 'HTML IN MY STYLE',              icon: 'fab fa-html5',     description: 'Master the building blocks of web development with comprehensive HTML training',  link: '/html-course' },
-    { id: 2, name: 'CSS IN MY STYLE',               icon: 'fab fa-css3-alt',  description: 'Create stunning designs and layouts with advanced CSS techniques',                 link: '/css-course' },
-    { id: 3, name: 'JAVASCRIPT BASIC IN MY STYLE',  icon: 'fab fa-js-square', description: 'Learn the building blocks of JavaScript, step by step',                           link: '/js-basic-course' },
+    { id: 1, name: 'HTML in My Style', icon: 'fab fa-html5', description: 'Master HTML fundamentals and web structure.', link: '/html-course' },
+    { id: 2, name: 'CSS in My Style', icon: 'fab fa-css3-alt', description: 'Learn CSS styling, layouts, and responsive design.', link: '/css-course' },
+    { id: 3, name: 'JavaScript Basic in My Style', icon: 'fab fa-js', description: 'Understand JavaScript fundamentals and DOM manipulation.', link: '/js-basic-course' },
+    { id: 4, name: 'JavaScript Intermediate in My Style', icon: 'fab fa-js', description: 'Advance your JavaScript skills with intermediate concepts.', link: '/js-int-course' },
+    { id: 5, name: 'JavaScript Advanced in My Style', icon: 'fab fa-js', description: 'Master Enterprise-Level JavaScript concepts and architecture.', link: '/js-adv-course' },
+    { id: 12, name: 'C in My Style', icon: 'fas fa-copyright', description: 'Master the fundamentals of C programming.', link: '/c-course' },
+    { id: 6, name: 'Java in My Style', icon: 'fab fa-java', description: 'Learn Java programming for robust applications.', link: '/java-course' },
+    { id: 7, name: 'Python in My Style', icon: 'fab fa-python', description: 'Explore Python for web development and data science.', link: '/python-course' },
+    { id: 8, name: 'AI in My Style', icon: 'fas fa-robot', description: 'Dive into Artificial Intelligence concepts and algorithms.', link: '/ai-course' },
+    { id: 9, name: 'ML in My Style', icon: 'fas fa-brain', description: 'Learn Machine Learning techniques and models.', link: '/ml-course' },
+    { id: 10, name: 'DL in My Style', icon: 'fas fa-network-wired', description: 'Master Deep Learning with neural networks.', link: '/dl-course' },
+    { id: 11, name: 'DSC in My Style', icon: 'fas fa-chart-bar', description: 'Gain expertise in Data Science concepts.', link: '/dsc-course' },
+    { id: 13, name: 'DSA in My Style', icon: 'fas fa-sitemap', description: 'Master Data Structures and Algorithms with visualizers.', link: '/dsa-course' },
+    { id: 14, name: 'NLP in My Style', icon: 'fas fa-language', description: 'Master Natural Language Processing.', link: '/nlp-course' },
+    { id: 15, name: 'OS in My Style', icon: 'fas fa-microchip', description: 'Master Operating Systems concepts.', link: '/os-course' },
+    { id: 16, name: 'System Design in My Style', icon: 'fas fa-server', description: 'Master system design concepts from basics to real-world.', link: '/system-design-course' },
+    { id: 17, name: 'Database in My Style', icon: 'fas fa-database', description: 'Master SQL and MongoDB with live query execution.', link: '/database-course' },
+    { id: 18, name: 'Gen AI in My Style', icon: 'fas fa-wand-magic-sparkles', description: 'Master Generative AI from foundations to production.', link: '/genai-course' },
+    { id: 19, name: 'Full Stack Python in My Style', icon: 'fab fa-python', description: 'Master Python from fundamentals to deployment.', link: '/fullstack-python-course' },
+    { id: 20, name: 'Full Stack Java in My Style', icon: 'fab fa-java', description: 'Build scalable backend systems with Java and Spring Boot.', link: '/fullstack-java-platform-course' }
   ];
 
   const testimonials = [
@@ -68,8 +85,8 @@ const Home = () => {
   ];
 
   const socialLinks = [
-    { icon: 'fab fa-instagram', name: 'Instagram', link: 'https://www.instagram.com/techinmystyle' },
-    { icon: 'fab fa-youtube',   name: 'YouTube',   link: 'https://www.youtube.com/@TECHINMYSTYLE' },
+    { icon: 'fab fa-instagram', name: 'Instagram', link: 'https://www.instagram.com/tech_in_my_style?igsh=MWVpb2dzcmhwZ2NicQ==' },
+    { icon: 'fab fa-youtube',   name: 'YouTube',   link: 'https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw' },
     { icon: 'fab fa-telegram',  name: 'Telegram',  link: 'https://t.me/Tech_in_my_style_bot' },
     { icon: 'fab fa-whatsapp',  name: 'WhatsApp',  link: 'https://whatsapp.com/channel/0029VbAZrCD5fM5aOU10Av0d' },
   ];
@@ -114,7 +131,7 @@ const Home = () => {
       {/* Popular Courses */}
       <section id="courses" className="courses">
         <div className="container">
-          <h2 data-aos="fade-up">Popular Courses</h2>
+          <h2 data-aos="fade-up">Our Courses</h2>
           <div className="courses-grid">
             {courses.map((course, i) => (
               <article className="course-card" key={course.id} data-aos="fade-up" data-aos-delay={i * 100}>

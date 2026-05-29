@@ -95,8 +95,9 @@ const AboutUs = () => {
       role: 'UI/UX Architect & Front-End Lead',
       bio: 'Passionate UI/UX designer crafting intuitive and visually engaging interfaces. Leads front-end development for creating seamless learning experiences.',
       expertise: ['UI/UX Design', 'Prototyping', 'Responsive Web-Design'],
-      image: './img/rk.png',
+      image: './img/rk.png?v=2',
       linkedin: 'https://www.linkedin.com/in/rama-krishna-prasad/',
+      github: 'https://github.com/Ramu-2003',
       email: 'mailto:ramu4012y@gmail.com',
       portfolio: 'https://ramu2710-portfolio.netlify.app/'
     },
@@ -105,7 +106,7 @@ const AboutUs = () => {
       role: 'Technical Lead & Head Developer',
       bio: 'Leads platform architecture and core technology. Skilled in full-stack development and deep learning integration for scalable educational systems.',
       expertise: ['Full-Stack Development', 'System Architecture', 'Deep Learning'],
-      image: './img/basha.png',
+      image: './img/basha.png?v=2',
       linkedin: 'https://www.linkedin.com/in/shaik-rameez-basha-151740286/',
       email: 'mailto:shaikbashah20@gmail.com',
       portfolio: 'https://basha-portfolio-2049.netlify.app/'
@@ -115,7 +116,7 @@ const AboutUs = () => {
       role: 'Developer & Course Designer',
       bio: 'Backend developer specializing in AI, ML, and DL. Designs and develops practical real-world projects to power AI & Data Science learning.',
       expertise: ['AI/ML', 'Data Science', 'Deep Learning'],
-      image: './img/asadullah.png',
+      image: './img/asadullah.png?v=2',
       linkedin: 'https://www.linkedin.com/in/syed-asadullah-5a014034a/',
       email: 'mailto:syedasadullah.asd@gmail.com',
       portfolio: 'https://asd4305-portfolio.netlify.app/'
@@ -125,7 +126,7 @@ const AboutUs = () => {
       role: 'Marketing Strategist & Technical Support Specialist',
       bio: 'Drives marketing strategies and technical operations. Builds strong brand presence while ensuring smooth technical support for learners.',
       expertise: ['Digital Marketing', 'Technical Support', 'Customer Success'],
-      image: './img/sailesh.jpg',
+      image: './img/sailesh.jpg?v=2',
       linkedin: 'https://www.linkedin.com/in/saileshkumardarsi/',
       email: 'mailto:saileshkumar68192@gmail.com',
       portfolio: 'https://sailesh-portfolio-4315.netlify.app/'
@@ -135,7 +136,7 @@ const AboutUs = () => {
       role: 'Brand Development Lead & Technical Support Associate',
       bio: 'Leads brand promotions and community engagement efforts. Provides technical assistance while expanding platform reach and user engagement.',
       expertise: ['Brand Promotion', 'Community Engagement', 'Support Operations'],
-      image: './img/jayanth.png',
+      image: './img/jayanth.png?v=2',
       linkedin: 'https://www.linkedin.com/in/jay-d-8a8559246/',
       email: 'mailto:djay8im@gmail.com',
       portfolio: 'https://jayanth-08.netlify.app/'
@@ -238,6 +239,11 @@ const AboutUs = () => {
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-linkedin"></i>
                     </a>
+                    {member.github && (
+                      <a href={member.github} target="_blank" rel="noopener noreferrer">
+                        <i className="fab fa-github"></i>
+                      </a>
+                    )}
                     <a href={member.email}>
                       <i className="fas fa-envelope"></i>
                     </a>

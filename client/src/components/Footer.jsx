@@ -64,13 +64,13 @@ const Footer = () => {
               </div>
               <div className="footer-column">
                 <h4>Connect With Us</h4>
-                <a href="https://www.instagram.com/techinmystyle" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/tech_in_my_style?igsh=MWVpb2dzcmhwZ2NicQ==" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-instagram"></i> Instagram
                 </a>
-                <a href="https://youtube.com/@TECHINMYSTYLE" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-youtube"></i> YouTube
                 </a>
-                <a href="https://wa.me/919390119848" target="_blank" rel="noopener noreferrer">
+                <a href="https://whatsapp.com/channel/0029VbAZrCD5fM5aOU10Av0d" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-whatsapp"></i> WhatsApp
                 </a>
                 <a href="https://t.me/Tech_in_my_style_bot" target="_blank" rel="noopener noreferrer">

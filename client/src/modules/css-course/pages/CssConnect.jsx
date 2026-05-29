@@ -8,10 +8,10 @@ const SOCIALS = [
   {
     key: "youtube",
     label: "YouTube",
-    handle: "@TECHINMYSTYLE",
+    handle: "@tech-in-my-style",
     description:
       "Subscribe to our YouTube channel for in-depth CSS tutorials, full courses, and step-by-step guides on Flexbox, Grid, animations, and more.",
-    href: "https://www.youtube.com/@TECHINMYSTYLE",
+    href: "https://youtube.com/@tech-in-my-style?si=G48ugz-d8oO7-4Dw",
     icon: "bi bi-youtube",
     color: "#FF0000",
     bg: "rgba(255,0,0,0.08)",
@@ -50,10 +50,10 @@ const SOCIALS = [
   {
     key: "instagram",
     label: "Instagram",
-    handle: "@techinmystyle",
+    handle: "@tech_in_my_style",
     description:
       "Follow us on Instagram for bite-sized CSS tips, visual design guides, course announcements, and behind-the-scenes content.",
-    href: "https://www.instagram.com/techinmystyle/?igsh=YXIxdWl2NGFmdXZk",
+    href: "https://www.instagram.com/tech_in_my_style?igsh=MWVpb2dzcmhwZ2NicQ==",
     icon: "bi bi-instagram",
     color: "#E1306C",
     bg: "rgba(225,48,108,0.08)",
